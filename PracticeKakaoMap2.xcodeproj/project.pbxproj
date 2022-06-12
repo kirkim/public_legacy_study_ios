@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE386979285613BC003B6AD5 /* DeliveryMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE386978285613BC003B6AD5 /* DeliveryMapViewController.swift */; };
 		FE8BE29A285564920036BBCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BE299285564920036BBCD /* AppDelegate.swift */; };
 		FE8BE29C285564920036BBCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BE29B285564920036BBCD /* SceneDelegate.swift */; };
 		FE8BE2A3285564930036BBCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE8BE2A2285564930036BBCD /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE386978285613BC003B6AD5 /* DeliveryMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryMapViewController.swift; sourceTree = "<group>"; };
 		FE8BE296285564920036BBCD /* PracticeKakaoMap2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeKakaoMap2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE8BE299285564920036BBCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE8BE29B285564920036BBCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +154,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE3869772856139E003B6AD5 /* Presentation2 */ = {
+			isa = PBXGroup;
+			children = (
+				FE386978285613BC003B6AD5 /* DeliveryMapViewController.swift */,
+			);
+			path = Presentation2;
+			sourceTree = "<group>";
+		};
 		FE8BE28D285564920036BBCD = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +182,7 @@
 		FE8BE298285564920036BBCD /* PracticeKakaoMap2 */ = {
 			isa = PBXGroup;
 			children = (
+				FE3869772856139E003B6AD5 /* Presentation2 */,
 				FE8BE30028556A630036BBCD /* BridgingHeader.h */,
 				FE8BE299285564920036BBCD /* AppDelegate.swift */,
 				FE8BE29B285564920036BBCD /* SceneDelegate.swift */,
@@ -411,6 +422,7 @@
 				FE8BE38928556E390036BBCD /* MTMapViewError.swift in Sources */,
 				FE8BE29A285564920036BBCD /* AppDelegate.swift in Sources */,
 				FE8BE29C285564920036BBCD /* SceneDelegate.swift in Sources */,
+				FE386979285613BC003B6AD5 /* DeliveryMapViewController.swift in Sources */,
 				FE8BE37F28556DCB0036BBCD /* LocalAPI.swift in Sources */,
 				FE8BE37D28556DAA0036BBCD /* DetailListBackgroundView.swift in Sources */,
 				FE8BE38528556E0F0036BBCD /* KLDocument.swift in Sources */,
