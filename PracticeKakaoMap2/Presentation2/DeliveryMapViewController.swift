@@ -10,23 +10,24 @@ import CoreLocation
 import RxSwift
 import RxCocoa
 import SnapKit
-import SystemConfiguration
+import RxGesture
 
 class DeliveryMapViewController: UIViewController {
     private let disposeBage = DisposeBag()
     
     private let locationManager = CLLocationManager()
-//    private let mapView = MTMapView()
-    private let mapView = UIView()
-    private let addressView = UIView()
-    private let submitButton = UIView()
+    private let mapView = MTMapView()
+    private let mapInfoView = MapInfoView()
+    private let submitButton = UILabel()
     
     private let containerStackView = UIStackView()
+    
+    private let viewModel = DeliveryMapViewModel()
     
     init() {
         super.init(nibName: nil, bundle: nil)
         
-//        mapView.delegate = self
+        mapView.delegate = self
         locationManager.delegate = self
         
         attribute()
@@ -39,25 +40,27 @@ class DeliveryMapViewController: UIViewController {
     }
     
     private func bind() {
-        
+        self.mapInfoView.bind(viewModel.mapInfoViewModel)
     }
     
     private func attribute() {
         title = "지도에서 위치 확인"
         view.backgroundColor = .white
-        //temp
-        mapView.backgroundColor = .red
+        mapView.showCurrentLocationMarker = true
+        mapView.setZoomLevel(.zero, animated: true)
         
         containerStackView.axis = .vertical
         containerStackView.distribution = .equalSpacing
         
-        addressView.backgroundColor = .yellow
-        
         submitButton.backgroundColor = .brown
+        submitButton.text = "이 위치로 주소 설정"
+        submitButton.textAlignment = .center
+        submitButton.textColor = .white
+        submitButton.font = .systemFont(ofSize: 20, weight: .bold)
     }
     
     private func layout() {
-        [UIView(), addressView, submitButton, UIView()].forEach {
+        [UIView(), mapInfoView, submitButton, UIView()].forEach {
             containerStackView.addArrangedSubview($0)
         }
         
@@ -65,7 +68,7 @@ class DeliveryMapViewController: UIViewController {
             view.addSubview($0)
         }
         
-        addressView.snp.makeConstraints {
+        mapInfoView.snp.makeConstraints {
             $0.height.equalTo(60)
         }
 
@@ -89,10 +92,27 @@ class DeliveryMapViewController: UIViewController {
 
 //MARK: - MTMapViewDelegate
 extension DeliveryMapViewController: MTMapViewDelegate {
-    
+    func mapView(_ mapView: MTMapView!, finishedMapMoveAnimation mapCenterPoint: MTMapPoint!) {
+        viewModel.mapCenterPoint.accept(mapCenterPoint)
+        let poitem = MTMapPOIItem()
+        poitem.mapPoint = mapCenterPoint
+        poitem.markerType = .redPin
+        
+        mapView.removeAllPOIItems()
+        mapView.add(poitem)
+    }
 }
 
 //MARK: - CLLocationManagerDelegate
 extension DeliveryMapViewController: CLLocationManagerDelegate {
-    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedAlways,
+                .authorizedWhenInUse,
+                .notDetermined:
+            return
+        default:
+            return
+        }
+    }
 }

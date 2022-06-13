@@ -10,7 +10,7 @@ import CoreLocation
 import RxSwift
 import RxCocoa
 import SnapKit
-import SystemConfiguration
+//import SystemConfiguration
 
 class MainViewController: UIViewController {
     let disposeBag = DisposeBag()
@@ -32,6 +32,10 @@ class MainViewController: UIViewController {
         attribute()
         layout()
         bind(viewModel)
+        let sample = MTMapPOIItem()
+        sample.mapPoint = MTMapPoint(geoCoord: MTMapPointGeo(latitude: 37.5674205185068, longitude: 126.977873331336))
+        sample.markerType = .redPin
+        mapView.addPOIItems([sample])
     }
     
     required init?(coder: NSCoder) {
@@ -88,6 +92,8 @@ class MainViewController: UIViewController {
         detailList.register(DetailListCell.self, forCellReuseIdentifier: "DetailListCell")
         detailList.separatorStyle = .none
         detailList.backgroundView = detailListBackgroundView
+        
+        mapView.showCurrentLocationMarker = true
     }
     
     private func layout() {
@@ -186,10 +192,9 @@ extension Reactive where Base: MainViewController {
                 .enumerated()
                 .map { offset, point -> MTMapPOIItem in
                     let mapPOIItem = MTMapPOIItem()
-                    
                     mapPOIItem.mapPoint = point
-                    mapPOIItem.markerType = .redPin
-                    mapPOIItem.showAnimationType = .springFromGround
+                    mapPOIItem.markerType = .bluePin
+//                    mapPOIItem.showAnimationType = .springFromGround
                     mapPOIItem.tag = offset
                     
                     return mapPOIItem

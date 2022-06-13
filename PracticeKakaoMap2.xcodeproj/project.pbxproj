@@ -7,7 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE1E2F5F28571B8400D6A162 /* DeliveryMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E2F5E28571B8400D6A162 /* DeliveryMapViewModel.swift */; };
+		FE1E2F612857432A00D6A162 /* AddressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E2F602857432A00D6A162 /* AddressData.swift */; };
+		FE1E2F632857437700D6A162 /* AdDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E2F622857437700D6A162 /* AdDocument.swift */; };
+		FE1E2F6628575C1300D6A162 /* MapInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E2F6528575C1300D6A162 /* MapInfoView.swift */; };
+		FE1E2F6828575E1D00D6A162 /* MapInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E2F6728575E1D00D6A162 /* MapInfoViewModel.swift */; };
+		FE1E2F6B285760D100D6A162 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = FE1E2F6A285760D100D6A162 /* RxGesture */; };
+		FE1E2F702857653600D6A162 /* AddressType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E2F6F2857653600D6A162 /* AddressType.swift */; };
+		FE1E2F73285778A000D6A162 /* AddressPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E2F72285778A000D6A162 /* AddressPageViewController.swift */; };
+		FE1E2F752857812500D6A162 /* SampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E2F742857812500D6A162 /* SampleVC.swift */; };
 		FE386979285613BC003B6AD5 /* DeliveryMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE386978285613BC003B6AD5 /* DeliveryMapViewController.swift */; };
+		FE4753D52857021400AA2770 /* DeliveryMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4753D42857021400AA2770 /* DeliveryMapModel.swift */; };
 		FE8BE29A285564920036BBCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BE299285564920036BBCD /* AppDelegate.swift */; };
 		FE8BE29C285564920036BBCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BE29B285564920036BBCD /* SceneDelegate.swift */; };
 		FE8BE2A3285564930036BBCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE8BE2A2285564930036BBCD /* Assets.xcassets */; };
@@ -66,7 +76,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE1E2F5E28571B8400D6A162 /* DeliveryMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryMapViewModel.swift; sourceTree = "<group>"; };
+		FE1E2F602857432A00D6A162 /* AddressData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressData.swift; sourceTree = "<group>"; };
+		FE1E2F622857437700D6A162 /* AdDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdDocument.swift; sourceTree = "<group>"; };
+		FE1E2F6528575C1300D6A162 /* MapInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInfoView.swift; sourceTree = "<group>"; };
+		FE1E2F6728575E1D00D6A162 /* MapInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInfoViewModel.swift; sourceTree = "<group>"; };
+		FE1E2F6F2857653600D6A162 /* AddressType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressType.swift; sourceTree = "<group>"; };
+		FE1E2F72285778A000D6A162 /* AddressPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressPageViewController.swift; sourceTree = "<group>"; };
+		FE1E2F742857812500D6A162 /* SampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleVC.swift; sourceTree = "<group>"; };
 		FE386978285613BC003B6AD5 /* DeliveryMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryMapViewController.swift; sourceTree = "<group>"; };
+		FE4753D42857021400AA2770 /* DeliveryMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryMapModel.swift; sourceTree = "<group>"; };
 		FE8BE296285564920036BBCD /* PracticeKakaoMap2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeKakaoMap2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE8BE299285564920036BBCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE8BE29B285564920036BBCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE8BE2DC285567B90036BBCD /* QuartzCore.framework in Frameworks */,
+				FE1E2F6B285760D100D6A162 /* RxGesture in Frameworks */,
 				FE8BE2D62855679D0036BBCD /* OpenGLES.framework in Frameworks */,
 				FE8BE2D0285565A60036BBCD /* RxSwift in Frameworks */,
 				FE8BE2D3285565BD0036BBCD /* SnapKit in Frameworks */,
@@ -154,10 +174,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE1E2F6428575BC800D6A162 /* SubComponents */ = {
+			isa = PBXGroup;
+			children = (
+				FE1E2F6528575C1300D6A162 /* MapInfoView.swift */,
+				FE1E2F6728575E1D00D6A162 /* MapInfoViewModel.swift */,
+			);
+			path = SubComponents;
+			sourceTree = "<group>";
+		};
+		FE1E2F6E2857652000D6A162 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FE1E2F6F2857653600D6A162 /* AddressType.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		FE1E2F712857784A00D6A162 /* MAIN */ = {
+			isa = PBXGroup;
+			children = (
+				FE1E2F72285778A000D6A162 /* AddressPageViewController.swift */,
+			);
+			path = MAIN;
+			sourceTree = "<group>";
+		};
 		FE3869772856139E003B6AD5 /* Presentation2 */ = {
 			isa = PBXGroup;
 			children = (
 				FE386978285613BC003B6AD5 /* DeliveryMapViewController.swift */,
+				FE1E2F5E28571B8400D6A162 /* DeliveryMapViewModel.swift */,
+				FE4753D42857021400AA2770 /* DeliveryMapModel.swift */,
+				FE1E2F6428575BC800D6A162 /* SubComponents */,
+				FE1E2F6E2857652000D6A162 /* Entities */,
 			);
 			path = Presentation2;
 			sourceTree = "<group>";
@@ -182,6 +231,8 @@
 		FE8BE298285564920036BBCD /* PracticeKakaoMap2 */ = {
 			isa = PBXGroup;
 			children = (
+				FE1E2F742857812500D6A162 /* SampleVC.swift */,
+				FE1E2F712857784A00D6A162 /* MAIN */,
 				FE3869772856139E003B6AD5 /* Presentation2 */,
 				FE8BE30028556A630036BBCD /* BridgingHeader.h */,
 				FE8BE299285564920036BBCD /* AppDelegate.swift */,
@@ -215,9 +266,11 @@
 			isa = PBXGroup;
 			children = (
 				FE8BE38228556DF80036BBCD /* DetailListCellData.swift */,
-				FE8BE38428556E0F0036BBCD /* KLDocument.swift */,
 				FE8BE38628556E260036BBCD /* LocationData.swift */,
+				FE8BE38428556E0F0036BBCD /* KLDocument.swift */,
 				FE8BE38828556E390036BBCD /* MTMapViewError.swift */,
+				FE1E2F602857432A00D6A162 /* AddressData.swift */,
+				FE1E2F622857437700D6A162 /* AdDocument.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -332,6 +385,7 @@
 				FE8BE2CD285565A60036BBCD /* RxRelay */,
 				FE8BE2CF285565A60036BBCD /* RxSwift */,
 				FE8BE2D2285565BD0036BBCD /* SnapKit */,
+				FE1E2F6A285760D100D6A162 /* RxGesture */,
 			);
 			productName = PracticeKakaoMap2;
 			productReference = FE8BE296285564920036BBCD /* PracticeKakaoMap2.app */;
@@ -364,6 +418,7 @@
 			packageReferences = (
 				FE8BE2CA285565A60036BBCD /* XCRemoteSwiftPackageReference "RxSwift" */,
 				FE8BE2D1285565BD0036BBCD /* XCRemoteSwiftPackageReference "SnapKit" */,
+				FE1E2F69285760D100D6A162 /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = FE8BE297285564920036BBCD /* Products */;
 			projectDirPath = "";
@@ -418,10 +473,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE4753D52857021400AA2770 /* DeliveryMapModel.swift in Sources */,
 				FE8BE37328556CEE0036BBCD /* MainViewController.swift in Sources */,
 				FE8BE38928556E390036BBCD /* MTMapViewError.swift in Sources */,
+				FE1E2F6828575E1D00D6A162 /* MapInfoViewModel.swift in Sources */,
 				FE8BE29A285564920036BBCD /* AppDelegate.swift in Sources */,
 				FE8BE29C285564920036BBCD /* SceneDelegate.swift in Sources */,
+				FE1E2F5F28571B8400D6A162 /* DeliveryMapViewModel.swift in Sources */,
+				FE1E2F73285778A000D6A162 /* AddressPageViewController.swift in Sources */,
+				FE1E2F6628575C1300D6A162 /* MapInfoView.swift in Sources */,
+				FE1E2F612857432A00D6A162 /* AddressData.swift in Sources */,
 				FE386979285613BC003B6AD5 /* DeliveryMapViewController.swift in Sources */,
 				FE8BE37F28556DCB0036BBCD /* LocalAPI.swift in Sources */,
 				FE8BE37D28556DAA0036BBCD /* DetailListBackgroundView.swift in Sources */,
@@ -430,9 +491,12 @@
 				FE8BE37928556D610036BBCD /* DetailListCell.swift in Sources */,
 				FE8BE37528556D120036BBCD /* MainViewModel.swift in Sources */,
 				FE8BE38728556E260036BBCD /* LocationData.swift in Sources */,
+				FE1E2F702857653600D6A162 /* AddressType.swift in Sources */,
 				FE8BE38128556DE20036BBCD /* LocalNetwork.swift in Sources */,
+				FE1E2F752857812500D6A162 /* SampleVC.swift in Sources */,
 				FE8BE38328556DF80036BBCD /* DetailListCellData.swift in Sources */,
 				FE8BE37B28556D8F0036BBCD /* DetailListBackgroundViewModel.swift in Sources */,
+				FE1E2F632857437700D6A162 /* AdDocument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,6 +718,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FE1E2F69285760D100D6A162 /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		FE8BE2CA285565A60036BBCD /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -673,6 +745,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FE1E2F6A285760D100D6A162 /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE1E2F69285760D100D6A162 /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
+		};
 		FE8BE2CB285565A60036BBCD /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FE8BE2CA285565A60036BBCD /* XCRemoteSwiftPackageReference "RxSwift" */;

@@ -30,7 +30,6 @@ struct MainModel {
     func documentToMTMapPoint(_ doc: KLDocument) -> MTMapPoint {
         let latitude = Double(doc.x) ?? .zero
         let longitude = Double(doc.y) ?? .zero
-        
         return MTMapPoint(geoCoord: MTMapPointGeo(latitude: latitude, longitude: longitude))
     }
 }

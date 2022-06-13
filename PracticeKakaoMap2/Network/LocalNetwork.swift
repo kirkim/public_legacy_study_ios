@@ -35,4 +35,25 @@ class LocalNetwork {
             .catch { _ in .just(Result.failure(URLError(.cannotLoadFromNetwork)))}
             .asSingle()
     }
+    
+    func getAdress(by mapPoint: MTMapPoint) -> Single<Result<AddressData, URLError>> {
+        guard let url = api.getAddress(by: mapPoint).url else {
+            return .just(.failure(URLError(.badURL)))
+        }
+        let request = NSMutableURLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("KakaoAK bec7ecd230f47f4a5bc1c6dc80c64c3a", forHTTPHeaderField: "Authorization")
+        
+        return session.rx.data(request: request as URLRequest)
+            .map { data in
+                do {
+                    let addressData = try JSONDecoder().decode(AddressData.self, from: data)
+                    return .success(addressData)
+                } catch {
+                    return .failure(URLError(.cannotParseResponse))
+                }
+            }
+            .catch { _ in .just(Result.failure(URLError(.cannotLoadFromNetwork)))}
+            .asSingle()
+    }
 }
