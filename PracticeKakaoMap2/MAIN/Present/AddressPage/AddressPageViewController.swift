@@ -7,12 +7,17 @@
 
 import UIKit
 import SnapKit
+import RxGesture
+import RxSwift
 
 class AddressPageViewController: UIViewController {
+    private let disposeBag = DisposeBag()
+    
     private let containerStackView = UIStackView()
+    private let stickView = JustOneStickView()
     private let titleLabel = UILabel()
-    private let searchView = UIView()
-    private let openMapView = UIView()
+    private let presentSearchViewButton = PresentAddressSearchView()
+    private let presentMapViewButton = PresentMapView()
     
     private let tableView = UITableView()
     
@@ -21,17 +26,34 @@ class AddressPageViewController: UIViewController {
         
         attribute()
         layout()
+        bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func bind() {
+        self.presentSearchViewButton.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: {_ in
+                let vc = AddressSearchViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
+
+    }
+    
     private func attribute() {
         view.backgroundColor = .systemGray
         
         titleLabel.text = "주소 설정"
-        titleLabel.font = .systemFont(ofSize: 22, weight: .medium)
+        titleLabel.font = .systemFont(ofSize: 18, weight: .medium)
         titleLabel.textAlignment = .center
         
         containerStackView.axis = .vertical
@@ -41,23 +63,34 @@ class AddressPageViewController: UIViewController {
         containerStackView.backgroundColor = .white
         
         // temp
-        titleLabel.backgroundColor = .green
-        searchView.backgroundColor = .blue
-        openMapView.backgroundColor = .orange
         tableView.backgroundColor = .brown
     }
     
     private func layout() {
-        [titleLabel, searchView, openMapView].forEach {
+        [stickView, titleLabel, presentSearchViewButton, presentMapViewButton].forEach {
             containerStackView.addArrangedSubview($0)
         }
         
-        searchView.snp.makeConstraints {
-            $0.height.equalTo(40)
+        let stickViewHeight = 25
+        let titleLabelHeight = 40
+        let searchViewHeight = 40
+        let openMapViewHeight = 40
+        let containerHeight = stickViewHeight + titleLabelHeight + searchViewHeight + openMapViewHeight
+        
+        stickView.snp.makeConstraints {
+            $0.height.equalTo(stickViewHeight)
         }
         
-        openMapView.snp.makeConstraints {
-            $0.height.equalTo(40)
+        titleLabel.snp.makeConstraints {
+            $0.height.equalTo(titleLabelHeight)
+        }
+        
+        presentSearchViewButton.snp.makeConstraints {
+            $0.height.equalTo(searchViewHeight)
+        }
+        
+        presentMapViewButton.snp.makeConstraints {
+            $0.height.equalTo(openMapViewHeight)
         }
         
         [containerStackView, tableView].forEach {
@@ -68,7 +101,7 @@ class AddressPageViewController: UIViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
-            $0.height.equalTo(130)
+            $0.height.equalTo(containerHeight)
         }
 
         tableView.snp.makeConstraints {

@@ -137,11 +137,11 @@ extension MainViewController: CLLocationManagerDelegate {
 
 extension MainViewController: MTMapViewDelegate {
     func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
-        #if DEBUG
+#if DEBUG
         viewModel.currentLocation.accept(MTMapPoint(geoCoord: MTMapPointGeo(latitude: 37.394225, longitude: 127.118341)))
-        #else
-         viewModel.currentLocation.accept(loaction)
-        #endif
+#else
+        viewModel.currentLocation.accept(loaction)
+#endif
     }
     
     // 맵 이동이 끝났을 때

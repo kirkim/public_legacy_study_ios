@@ -16,6 +16,8 @@
 		FE1E2F702857653600D6A162 /* AddressType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E2F6F2857653600D6A162 /* AddressType.swift */; };
 		FE1E2F73285778A000D6A162 /* AddressPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E2F72285778A000D6A162 /* AddressPageViewController.swift */; };
 		FE1E2F752857812500D6A162 /* SampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E2F742857812500D6A162 /* SampleVC.swift */; };
+		FE2601982858D053002D30C8 /* AddressSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2601972858D053002D30C8 /* AddressSearchBar.swift */; };
+		FE26019A2858D2F4002D30C8 /* AddressBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2601992858D2F4002D30C8 /* AddressBackgroundView.swift */; };
 		FE386979285613BC003B6AD5 /* DeliveryMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE386978285613BC003B6AD5 /* DeliveryMapViewController.swift */; };
 		FE4753D52857021400AA2770 /* DeliveryMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4753D42857021400AA2770 /* DeliveryMapModel.swift */; };
 		FE8BE29A285564920036BBCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BE299285564920036BBCD /* AppDelegate.swift */; };
@@ -73,6 +75,13 @@
 		FE8BE38528556E0F0036BBCD /* KLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BE38428556E0F0036BBCD /* KLDocument.swift */; };
 		FE8BE38728556E260036BBCD /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BE38628556E260036BBCD /* LocationData.swift */; };
 		FE8BE38928556E390036BBCD /* MTMapViewError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BE38828556E390036BBCD /* MTMapViewError.swift */; };
+		FEF9610428584B930009D642 /* PresentAddressSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9610328584B930009D642 /* PresentAddressSearchView.swift */; };
+		FEF9610628584DDC0009D642 /* PresentMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9610528584DDC0009D642 /* PresentMapView.swift */; };
+		FEF96108285850800009D642 /* JustOneStickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF96107285850800009D642 /* JustOneStickView.swift */; };
+		FEF9610D285859900009D642 /* AddressSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9610C285859900009D642 /* AddressSearchViewController.swift */; };
+		FEF9611028585EAE0009D642 /* AddressSearchNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9610F28585EAE0009D642 /* AddressSearchNavigationBarView.swift */; };
+		FEF96112285862F30009D642 /* AddressSearchNavigationBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF96111285862F30009D642 /* AddressSearchNavigationBarViewModel.swift */; };
+		FEF96114285863870009D642 /* AddressSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF96113285863870009D642 /* AddressSearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +93,8 @@
 		FE1E2F6F2857653600D6A162 /* AddressType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressType.swift; sourceTree = "<group>"; };
 		FE1E2F72285778A000D6A162 /* AddressPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressPageViewController.swift; sourceTree = "<group>"; };
 		FE1E2F742857812500D6A162 /* SampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleVC.swift; sourceTree = "<group>"; };
+		FE2601972858D053002D30C8 /* AddressSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchBar.swift; sourceTree = "<group>"; };
+		FE2601992858D2F4002D30C8 /* AddressBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBackgroundView.swift; sourceTree = "<group>"; };
 		FE386978285613BC003B6AD5 /* DeliveryMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryMapViewController.swift; sourceTree = "<group>"; };
 		FE4753D42857021400AA2770 /* DeliveryMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryMapModel.swift; sourceTree = "<group>"; };
 		FE8BE296285564920036BBCD /* PracticeKakaoMap2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeKakaoMap2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +159,13 @@
 		FE8BE38428556E0F0036BBCD /* KLDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLDocument.swift; sourceTree = "<group>"; };
 		FE8BE38628556E260036BBCD /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		FE8BE38828556E390036BBCD /* MTMapViewError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTMapViewError.swift; sourceTree = "<group>"; };
+		FEF9610328584B930009D642 /* PresentAddressSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAddressSearchView.swift; sourceTree = "<group>"; };
+		FEF9610528584DDC0009D642 /* PresentMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentMapView.swift; sourceTree = "<group>"; };
+		FEF96107285850800009D642 /* JustOneStickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustOneStickView.swift; sourceTree = "<group>"; };
+		FEF9610C285859900009D642 /* AddressSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewController.swift; sourceTree = "<group>"; };
+		FEF9610F28585EAE0009D642 /* AddressSearchNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchNavigationBarView.swift; sourceTree = "<group>"; };
+		FEF96111285862F30009D642 /* AddressSearchNavigationBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchNavigationBarViewModel.swift; sourceTree = "<group>"; };
+		FEF96113285863870009D642 /* AddressSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,7 +212,7 @@
 		FE1E2F712857784A00D6A162 /* MAIN */ = {
 			isa = PBXGroup;
 			children = (
-				FE1E2F72285778A000D6A162 /* AddressPageViewController.swift */,
+				FEF96109285858CB0009D642 /* Present */,
 			);
 			path = MAIN;
 			sourceTree = "<group>";
@@ -364,6 +382,55 @@
 			path = Headers;
 			sourceTree = "<group>";
 		};
+		FEF9610228584B720009D642 /* SubComponents */ = {
+			isa = PBXGroup;
+			children = (
+				FEF96107285850800009D642 /* JustOneStickView.swift */,
+				FEF9610328584B930009D642 /* PresentAddressSearchView.swift */,
+				FEF9610528584DDC0009D642 /* PresentMapView.swift */,
+			);
+			path = SubComponents;
+			sourceTree = "<group>";
+		};
+		FEF96109285858CB0009D642 /* Present */ = {
+			isa = PBXGroup;
+			children = (
+				FEF9610B2858597A0009D642 /* AddressSearchPage */,
+				FEF9610A2858596E0009D642 /* AddressPage */,
+			);
+			path = Present;
+			sourceTree = "<group>";
+		};
+		FEF9610A2858596E0009D642 /* AddressPage */ = {
+			isa = PBXGroup;
+			children = (
+				FE1E2F72285778A000D6A162 /* AddressPageViewController.swift */,
+				FEF9610228584B720009D642 /* SubComponents */,
+			);
+			path = AddressPage;
+			sourceTree = "<group>";
+		};
+		FEF9610B2858597A0009D642 /* AddressSearchPage */ = {
+			isa = PBXGroup;
+			children = (
+				FEF9610C285859900009D642 /* AddressSearchViewController.swift */,
+				FEF96113285863870009D642 /* AddressSearchViewModel.swift */,
+				FEF9610E28585E7E0009D642 /* SubComponents */,
+			);
+			path = AddressSearchPage;
+			sourceTree = "<group>";
+		};
+		FEF9610E28585E7E0009D642 /* SubComponents */ = {
+			isa = PBXGroup;
+			children = (
+				FEF9610F28585EAE0009D642 /* AddressSearchNavigationBarView.swift */,
+				FEF96111285862F30009D642 /* AddressSearchNavigationBarViewModel.swift */,
+				FE2601972858D053002D30C8 /* AddressSearchBar.swift */,
+				FE2601992858D2F4002D30C8 /* AddressBackgroundView.swift */,
+			);
+			path = SubComponents;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -475,26 +542,35 @@
 			files = (
 				FE4753D52857021400AA2770 /* DeliveryMapModel.swift in Sources */,
 				FE8BE37328556CEE0036BBCD /* MainViewController.swift in Sources */,
+				FE2601982858D053002D30C8 /* AddressSearchBar.swift in Sources */,
 				FE8BE38928556E390036BBCD /* MTMapViewError.swift in Sources */,
+				FEF96112285862F30009D642 /* AddressSearchNavigationBarViewModel.swift in Sources */,
+				FE26019A2858D2F4002D30C8 /* AddressBackgroundView.swift in Sources */,
 				FE1E2F6828575E1D00D6A162 /* MapInfoViewModel.swift in Sources */,
 				FE8BE29A285564920036BBCD /* AppDelegate.swift in Sources */,
 				FE8BE29C285564920036BBCD /* SceneDelegate.swift in Sources */,
 				FE1E2F5F28571B8400D6A162 /* DeliveryMapViewModel.swift in Sources */,
 				FE1E2F73285778A000D6A162 /* AddressPageViewController.swift in Sources */,
 				FE1E2F6628575C1300D6A162 /* MapInfoView.swift in Sources */,
+				FEF9610D285859900009D642 /* AddressSearchViewController.swift in Sources */,
 				FE1E2F612857432A00D6A162 /* AddressData.swift in Sources */,
 				FE386979285613BC003B6AD5 /* DeliveryMapViewController.swift in Sources */,
+				FEF96114285863870009D642 /* AddressSearchViewModel.swift in Sources */,
 				FE8BE37F28556DCB0036BBCD /* LocalAPI.swift in Sources */,
 				FE8BE37D28556DAA0036BBCD /* DetailListBackgroundView.swift in Sources */,
 				FE8BE38528556E0F0036BBCD /* KLDocument.swift in Sources */,
 				FE8BE37728556D3D0036BBCD /* MainModel.swift in Sources */,
+				FEF9610428584B930009D642 /* PresentAddressSearchView.swift in Sources */,
 				FE8BE37928556D610036BBCD /* DetailListCell.swift in Sources */,
 				FE8BE37528556D120036BBCD /* MainViewModel.swift in Sources */,
 				FE8BE38728556E260036BBCD /* LocationData.swift in Sources */,
+				FEF96108285850800009D642 /* JustOneStickView.swift in Sources */,
 				FE1E2F702857653600D6A162 /* AddressType.swift in Sources */,
 				FE8BE38128556DE20036BBCD /* LocalNetwork.swift in Sources */,
 				FE1E2F752857812500D6A162 /* SampleVC.swift in Sources */,
 				FE8BE38328556DF80036BBCD /* DetailListCellData.swift in Sources */,
+				FEF9610628584DDC0009D642 /* PresentMapView.swift in Sources */,
+				FEF9611028585EAE0009D642 /* AddressSearchNavigationBarView.swift in Sources */,
 				FE8BE37B28556D8F0036BBCD /* DetailListBackgroundViewModel.swift in Sources */,
 				FE1E2F632857437700D6A162 /* AdDocument.swift in Sources */,
 			);

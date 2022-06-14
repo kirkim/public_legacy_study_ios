@@ -92,6 +92,14 @@ class DeliveryMapViewController: UIViewController {
 
 //MARK: - MTMapViewDelegate
 extension DeliveryMapViewController: MTMapViewDelegate {
+    func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
+//#if DEBUG
+//        viewModel.currentLocation.accept(MTMapPoint(geoCoord: MTMapPointGeo(latitude: 37.394225, longitude: 127.118341)))
+//#else
+//        viewModel.currentLocation.accept(loaction)
+//#endif
+    }
+    
     func mapView(_ mapView: MTMapView!, finishedMapMoveAnimation mapCenterPoint: MTMapPoint!) {
         viewModel.mapCenterPoint.accept(mapCenterPoint)
         let poitem = MTMapPOIItem()

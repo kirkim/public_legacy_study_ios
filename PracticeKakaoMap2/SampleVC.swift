@@ -30,10 +30,11 @@ class SampleVC: UIViewController {
         self.btn.rx.tap
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: {
-            let vc = AddressPageViewController()
-            self.present(vc, animated: true)
-        })
-        .disposed(by: disposeBag)
+                let vc = AddressPageViewController()
+                let nav = UINavigationController(rootViewController: vc)
+                self.present(nav, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func attribute() {
