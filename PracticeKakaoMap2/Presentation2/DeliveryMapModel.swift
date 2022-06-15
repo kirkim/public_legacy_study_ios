@@ -41,6 +41,6 @@ struct DeliveryMapModel {
     }
     
     func getAddress(by mapPoint: MTMapPoint) -> Single<Result<AddressData, URLError>> {
-        return localNetwork.getAdress(by: mapPoint)
+        return localNetwork.getAddressByPoint(by: mapPoint)
     }
 }

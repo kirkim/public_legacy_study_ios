@@ -12,6 +12,7 @@ struct LocalAPI {
     static let host = "dapi.kakao.com"
     static let path1 = "/v2/local/search/category.json"
     static let path2 = "/v2/local/geo/coord2address.json"
+    static let path3 = "/v2/local/search/address.json"
     
     func getLocation(by mapPoint: MTMapPoint) -> URLComponents {
         var components = URLComponents()
@@ -30,7 +31,7 @@ struct LocalAPI {
         return components
     }
     
-    func getAddress(by mapPoint: MTMapPoint) -> URLComponents {
+    func getAddressByPoint(by mapPoint: MTMapPoint) -> URLComponents {
         var components = URLComponents()
         components.scheme = LocalAPI.schema
         components.host = LocalAPI.host
@@ -42,6 +43,11 @@ struct LocalAPI {
         ]
         
         return components
+    }
+    
+    func getAddress(by text: String) -> URL {
+        let urlString = "https://dapi.kakao.com/v2/local/search/address.json?query=\(text)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        return URL(string: urlString)!
     }
 }
 

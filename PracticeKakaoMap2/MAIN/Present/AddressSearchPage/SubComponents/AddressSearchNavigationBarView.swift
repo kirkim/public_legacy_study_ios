@@ -34,7 +34,6 @@ class AddressSearchNavigationBarView: UIView {
             .map { _ in return }
             .bind(to: viewModel.backbuttonTapped)
             .disposed(by: disposeBag)
-            
     }
     
     private func attribute() {

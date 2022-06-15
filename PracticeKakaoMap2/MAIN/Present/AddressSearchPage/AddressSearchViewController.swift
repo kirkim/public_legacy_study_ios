@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class AddressSearchViewController: UIViewController {
     private let disposeBag = DisposeBag()
@@ -14,11 +15,13 @@ class AddressSearchViewController: UIViewController {
     
     private let containerStackView = UIStackView()
     
+    private let topPaddingView = UIView()
     private let customNavigationBar = AddressSearchNavigationBarView()
     private let customSearchBar = AddressSearchBar()
     private let presentMapViewButton = PresentMapView()
     private let tableView = UITableView()
     private let backgroundView = AddressBackgroundView()
+    private let addressNoDataView = AddressNoDataView()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -34,16 +37,46 @@ class AddressSearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
         self.tableView.isHidden = true
+        self.addressNoDataView.isHidden = true
         customSearchBar.becomeFirstResponder()
     }
     
     private func bind(_ viewModel: AddressSearchViewModel) {
         customNavigationBar.bind(viewModel.navigationBarViewModel)
+        customSearchBar.bind(viewModel.searchBarViewModel)
         
         viewModel.popView
             .emit(onNext: {
                 self.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.cellData
+            .drive(tableView.rx.items) { tv, row, data in
+                let cell = tv.dequeueReusableCell(withIdentifier: "AddressSearchCell", for: IndexPath(row: row, section: 0)) as! AddressSearchCell
+                cell.setData(data)
+                return cell
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.tableViewState
+            .emit(onNext: { state in
+                switch state {
+                case .find:
+                    self.addressNoDataView.isHidden = true
+                    self.tableView.isHidden = false
+                    self.backgroundView.isHidden = true
+                case .noData:
+                    self.addressNoDataView.isHidden = false
+                    self.backgroundView.isHidden = true
+                    self.tableView.isHidden = true
+                case .nothing:
+                    self.addressNoDataView.isHidden = true
+                    self.tableView.isHidden = true
+                    self.backgroundView.isHidden = false
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -51,23 +84,31 @@ class AddressSearchViewController: UIViewController {
     private func attribute() {
         self.view.backgroundColor = .systemGray6
         
+        topPaddingView.backgroundColor = .white
+        
         containerStackView.backgroundColor = .white
         containerStackView.axis = .vertical
         containerStackView.distribution = .equalSpacing
         containerStackView.isLayoutMarginsRelativeArrangement = true
         containerStackView.layoutMargins = UIEdgeInsets(top: 0, left: 12.0, bottom: 0, right: 12.0)
         
+        tableView.register(AddressSearchCell.self, forCellReuseIdentifier: "AddressSearchCell")
     }
     
     private func layout() {
-        [customNavigationBar, customSearchBar, presentMapViewButton].forEach {
+        [topPaddingView, customNavigationBar, customSearchBar, presentMapViewButton].forEach {
             containerStackView.addArrangedSubview($0)
         }
         
+        let topPadding = 30
         let navigationBarHeight = 40
         let searchBarHeight = 40
         let presentMapViewButtonHeight = 40
-        let containerHeight = navigationBarHeight + searchBarHeight + presentMapViewButtonHeight
+        let containerHeight = topPadding + navigationBarHeight + searchBarHeight + presentMapViewButtonHeight
+        
+        topPaddingView.snp.makeConstraints {
+            $0.height.equalTo(topPadding)
+        }
         
         customNavigationBar.snp.makeConstraints {
             $0.height.equalTo(navigationBarHeight)
@@ -81,14 +122,21 @@ class AddressSearchViewController: UIViewController {
             $0.height.equalTo(presentMapViewButtonHeight)
         }
         
-        [containerStackView, backgroundView, tableView].forEach {
+        [containerStackView, addressNoDataView, backgroundView, tableView].forEach {
             self.view.addSubview($0)
         }
         
         containerStackView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(30)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(containerHeight)
+        }
+        
+        addressNoDataView.snp.makeConstraints {
+            $0.top.equalTo(containerStackView.snp.bottom).offset(40)
+            $0.leading.equalToSuperview().offset(30)
+            $0.trailing.equalToSuperview().inset(30)
+            $0.bottom.equalToSuperview()
         }
         
         backgroundView.snp.makeConstraints {
