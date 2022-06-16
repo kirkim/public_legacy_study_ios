@@ -11,15 +11,15 @@ import RxSwift
 import RxGesture
 import SnapKit
 
-class AddressSearchNavigationBarView: UIView {
+class AddressNavigationBar: UIView {
     private let disposeBag = DisposeBag()
     
     private let backButton = UIImageView()
     private let titleLabel = UILabel()
     
-    init() {
+    init(title: String) {
         super.init(frame: CGRect.zero)
-        
+        self.titleLabel.text = title
         attribute()
         layout()
     }
@@ -28,7 +28,7 @@ class AddressSearchNavigationBarView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func bind(_ viewModel: AddressSearchNavigationBarViewModel) {
+    func bind(_ viewModel: AddressNavigationBarViewModel) {
         backButton.rx.tapGesture()
             .when(.recognized)
             .map { _ in return }
@@ -37,8 +37,7 @@ class AddressSearchNavigationBarView: UIView {
     }
     
     private func attribute() {
-        titleLabel.text = "주소 검색"
-        titleLabel.font = .systemFont(ofSize: 20, weight: .medium)
+        titleLabel.font = .systemFont(ofSize: 18, weight: .medium)
         
         backButton.image = UIImage(systemName: "arrow.left")
         backButton.tintColor = .black

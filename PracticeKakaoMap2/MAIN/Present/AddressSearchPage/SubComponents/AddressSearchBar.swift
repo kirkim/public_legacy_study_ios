@@ -32,7 +32,10 @@ class AddressSearchBar: UISearchBar {
     private func attribute() {
         self.placeholder = "지번, 도로명, 건물명으로 검색"
         self.delegate = self
-        self.keyboardType = .default
+        self.clipsToBounds = true
+        self.searchBarStyle = .minimal
+        self.backgroundColor = .white
+        self.searchTextField.layer.cornerRadius = 10
     }
     
     private func layout() {
@@ -41,6 +44,14 @@ class AddressSearchBar: UISearchBar {
 }
 
 extension AddressSearchBar: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchTextField.layer.borderWidth = 3
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.searchTextField.layer.borderWidth = 0
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.endEditing(true)
         viewModel?.submitText.accept(searchBar.text ?? "")

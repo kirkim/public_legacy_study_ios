@@ -10,7 +10,7 @@ import RxCocoa
 
 struct AddressSearchViewModel {
     // SubComponent ViewModel
-    let navigationBarViewModel = AddressSearchNavigationBarViewModel()
+    let navigationBarViewModel = AddressNavigationBarViewModel()
     let searchBarViewModel = AddressSearchBarViewModel()
     
     // ViewModel -> View

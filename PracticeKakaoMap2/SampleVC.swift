@@ -30,7 +30,8 @@ class SampleVC: UIViewController {
         self.btn.rx.tap
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: {
-                let vc = AddressPageViewController()
+//                let vc = AddressPageViewController()
+                let vc = AddressDetailViewController()
                 let nav = UINavigationController(rootViewController: vc)
                 self.present(nav, animated: true)
             })

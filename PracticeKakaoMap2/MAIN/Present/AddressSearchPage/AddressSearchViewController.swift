@@ -16,7 +16,7 @@ class AddressSearchViewController: UIViewController {
     private let containerStackView = UIStackView()
     
     private let topPaddingView = UIView()
-    private let customNavigationBar = AddressSearchNavigationBarView()
+    private let customNavigationBar = AddressNavigationBar(title: "주소 검색")
     private let customSearchBar = AddressSearchBar()
     private let presentMapViewButton = PresentMapView()
     private let tableView = UITableView()
@@ -33,6 +33,10 @@ class AddressSearchViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,7 +86,7 @@ class AddressSearchViewController: UIViewController {
     }
     
     private func attribute() {
-        self.view.backgroundColor = .systemGray6
+        view.backgroundColor = .systemGray6
         
         topPaddingView.backgroundColor = .white
         

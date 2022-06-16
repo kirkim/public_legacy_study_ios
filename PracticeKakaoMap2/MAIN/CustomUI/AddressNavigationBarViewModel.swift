@@ -8,6 +8,6 @@
 import RxCocoa
 import RxGesture
 
-struct AddressSearchNavigationBarViewModel {
+struct AddressNavigationBarViewModel {
     let backbuttonTapped = PublishRelay<Void>()
 }
