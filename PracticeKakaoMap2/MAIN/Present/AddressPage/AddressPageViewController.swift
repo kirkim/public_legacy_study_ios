@@ -17,7 +17,7 @@ class AddressPageViewController: UIViewController {
     private let stickView = JustOneStickView()
     private let titleLabel = UILabel()
     private let presentSearchViewButton = PresentAddressSearchView()
-    private let presentMapViewButton = PresentMapView()
+    private let presentMapViewButton = PresentMapView(.currentPoint)
     
     private let tableView = UITableView()
     
@@ -74,8 +74,8 @@ class AddressPageViewController: UIViewController {
         let stickViewHeight = 25
         let titleLabelHeight = 40
         let searchViewHeight = 40
-        let openMapViewHeight = 40
-        let containerHeight = stickViewHeight + titleLabelHeight + searchViewHeight + openMapViewHeight
+        let presentMapViewHeight = 50
+        let containerHeight = stickViewHeight + titleLabelHeight + searchViewHeight + presentMapViewHeight
         
         stickView.snp.makeConstraints {
             $0.height.equalTo(stickViewHeight)
@@ -90,7 +90,7 @@ class AddressPageViewController: UIViewController {
         }
         
         presentMapViewButton.snp.makeConstraints {
-            $0.height.equalTo(openMapViewHeight)
+            $0.height.equalTo(presentMapViewHeight)
         }
         
         [containerStackView, tableView].forEach {

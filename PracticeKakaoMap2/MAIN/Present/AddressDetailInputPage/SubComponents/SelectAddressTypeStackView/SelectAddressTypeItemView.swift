@@ -58,13 +58,13 @@ class SelectAddressTypeItemView: UIView {
         
         logoImageView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalToSuperview().offset(10)
+            $0.top.equalToSuperview().offset(15)
             $0.width.height.equalTo(20)
         }
         
         titleLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(logoImageView.snp.bottom).offset(10)
+            $0.top.equalTo(logoImageView.snp.bottom).offset(5)
         }
     }
 }

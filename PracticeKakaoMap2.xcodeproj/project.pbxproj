@@ -18,6 +18,10 @@
 		FE1E2F752857812500D6A162 /* SampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E2F742857812500D6A162 /* SampleVC.swift */; };
 		FE2601982858D053002D30C8 /* AddressSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2601972858D053002D30C8 /* AddressSearchBar.swift */; };
 		FE26019A2858D2F4002D30C8 /* AddressBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2601992858D2F4002D30C8 /* AddressBackgroundView.swift */; };
+		FE3379AC285C9E9100BB7CEF /* SelectAddressTypeStackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3379AB285C9E9100BB7CEF /* SelectAddressTypeStackViewModel.swift */; };
+		FE3379AF285C9F2800BB7CEF /* SelectAddressType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3379AE285C9F2800BB7CEF /* SelectAddressType.swift */; };
+		FE3379B1285CA28500BB7CEF /* AddressDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3379B0285CA28500BB7CEF /* AddressDetailViewModel.swift */; };
+		FE3379B3285CBFF300BB7CEF /* DetailAddressLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3379B2285CBFF300BB7CEF /* DetailAddressLabelView.swift */; };
 		FE386979285613BC003B6AD5 /* DeliveryMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE386978285613BC003B6AD5 /* DeliveryMapViewController.swift */; };
 		FE4753D52857021400AA2770 /* DeliveryMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4753D42857021400AA2770 /* DeliveryMapModel.swift */; };
 		FE4EDE7F285ADC2D00CBE701 /* SelectAddressTypeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4EDE7E285ADC2D00CBE701 /* SelectAddressTypeStackView.swift */; };
@@ -104,6 +108,10 @@
 		FE1E2F742857812500D6A162 /* SampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleVC.swift; sourceTree = "<group>"; };
 		FE2601972858D053002D30C8 /* AddressSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchBar.swift; sourceTree = "<group>"; };
 		FE2601992858D2F4002D30C8 /* AddressBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBackgroundView.swift; sourceTree = "<group>"; };
+		FE3379AB285C9E9100BB7CEF /* SelectAddressTypeStackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressTypeStackViewModel.swift; sourceTree = "<group>"; };
+		FE3379AE285C9F2800BB7CEF /* SelectAddressType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressType.swift; sourceTree = "<group>"; };
+		FE3379B0285CA28500BB7CEF /* AddressDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDetailViewModel.swift; sourceTree = "<group>"; };
+		FE3379B2285CBFF300BB7CEF /* DetailAddressLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAddressLabelView.swift; sourceTree = "<group>"; };
 		FE386978285613BC003B6AD5 /* DeliveryMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryMapViewController.swift; sourceTree = "<group>"; };
 		FE4753D42857021400AA2770 /* DeliveryMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryMapModel.swift; sourceTree = "<group>"; };
 		FE4EDE7E285ADC2D00CBE701 /* SelectAddressTypeStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressTypeStackView.swift; sourceTree = "<group>"; };
@@ -230,10 +238,21 @@
 		FE1E2F712857784A00D6A162 /* MAIN */ = {
 			isa = PBXGroup;
 			children = (
-				FE679E89285A23C300F512C4 /* CustomUI */,
+				FE679E89285A23C300F512C4 /* CustomUI(재사용 클래스) */,
 				FEF96109285858CB0009D642 /* Present */,
 			);
 			path = MAIN;
+			sourceTree = "<group>";
+		};
+		FE3379AD285C9EF400BB7CEF /* SelectAddressTypeStackView */ = {
+			isa = PBXGroup;
+			children = (
+				FE4EDE7E285ADC2D00CBE701 /* SelectAddressTypeStackView.swift */,
+				FE3379AB285C9E9100BB7CEF /* SelectAddressTypeStackViewModel.swift */,
+				FE4EDE80285ADCA700CBE701 /* SelectAddressTypeItemView.swift */,
+				FE3379AE285C9F2800BB7CEF /* SelectAddressType.swift */,
+			);
+			path = SelectAddressTypeStackView;
 			sourceTree = "<group>";
 		};
 		FE3869772856139E003B6AD5 /* Presentation2 */ = {
@@ -260,27 +279,29 @@
 			isa = PBXGroup;
 			children = (
 				FE679E87285A21F000F512C4 /* AddressDetailViewController.swift */,
+				FE3379B0285CA28500BB7CEF /* AddressDetailViewModel.swift */,
 				FE679E8A285A2C5300F512C4 /* SubComponents */,
 			);
 			path = AddressDetailInputPage;
 			sourceTree = "<group>";
 		};
-		FE679E89285A23C300F512C4 /* CustomUI */ = {
+		FE679E89285A23C300F512C4 /* CustomUI(재사용 클래스) */ = {
 			isa = PBXGroup;
 			children = (
 				FEF9610F28585EAE0009D642 /* AddressNavigationBar.swift */,
 				FEF96111285862F30009D642 /* AddressNavigationBarViewModel.swift */,
 				FEF9610528584DDC0009D642 /* PresentMapView.swift */,
 			);
-			path = CustomUI;
+			name = "CustomUI(재사용 클래스)";
+			path = "CustomUI(재사용 클래스)";
 			sourceTree = "<group>";
 		};
 		FE679E8A285A2C5300F512C4 /* SubComponents */ = {
 			isa = PBXGroup;
 			children = (
+				FE3379B2285CBFF300BB7CEF /* DetailAddressLabelView.swift */,
 				FE679E8B285A2CE200F512C4 /* DetailAddressTextField.swift */,
-				FE4EDE7E285ADC2D00CBE701 /* SelectAddressTypeStackView.swift */,
-				FE4EDE80285ADCA700CBE701 /* SelectAddressTypeItemView.swift */,
+				FE3379AD285C9EF400BB7CEF /* SelectAddressTypeStackView */,
 			);
 			path = SubComponents;
 			sourceTree = "<group>";
@@ -305,12 +326,12 @@
 		FE8BE298285564920036BBCD /* PracticeKakaoMap2 */ = {
 			isa = PBXGroup;
 			children = (
-				FE1E2F742857812500D6A162 /* SampleVC.swift */,
-				FE1E2F712857784A00D6A162 /* MAIN */,
-				FE3869772856139E003B6AD5 /* Presentation2 */,
 				FE8BE30028556A630036BBCD /* BridgingHeader.h */,
 				FE8BE299285564920036BBCD /* AppDelegate.swift */,
 				FE8BE29B285564920036BBCD /* SceneDelegate.swift */,
+				FE1E2F742857812500D6A162 /* SampleVC.swift */,
+				FE1E2F712857784A00D6A162 /* MAIN */,
+				FE3869772856139E003B6AD5 /* Presentation2 */,
 				FE8BE2E5285568680036BBCD /* Presentation */,
 				FE8BE2E3285568680036BBCD /* Entities */,
 				FE8BE2E4285568680036BBCD /* Network */,
@@ -605,6 +626,7 @@
 				FE2601982858D053002D30C8 /* AddressSearchBar.swift in Sources */,
 				FE8BE38928556E390036BBCD /* MTMapViewError.swift in Sources */,
 				FEF96112285862F30009D642 /* AddressNavigationBarViewModel.swift in Sources */,
+				FE3379AF285C9F2800BB7CEF /* SelectAddressType.swift in Sources */,
 				FE679E88285A21F000F512C4 /* AddressDetailViewController.swift in Sources */,
 				FE26019A2858D2F4002D30C8 /* AddressBackgroundView.swift in Sources */,
 				FE1E2F6828575E1D00D6A162 /* MapInfoViewModel.swift in Sources */,
@@ -621,6 +643,7 @@
 				FE8BE37F28556DCB0036BBCD /* LocalAPI.swift in Sources */,
 				FE8BE37D28556DAA0036BBCD /* DetailListBackgroundView.swift in Sources */,
 				FE8BE38528556E0F0036BBCD /* KLDocument.swift in Sources */,
+				FE3379B1285CA28500BB7CEF /* AddressDetailViewModel.swift in Sources */,
 				FE4EDE81285ADCA700CBE701 /* SelectAddressTypeItemView.swift in Sources */,
 				FE8BE37728556D3D0036BBCD /* MainModel.swift in Sources */,
 				FEF9610428584B930009D642 /* PresentAddressSearchView.swift in Sources */,
@@ -628,6 +651,7 @@
 				FE679E8C285A2CE200F512C4 /* DetailAddressTextField.swift in Sources */,
 				FE679E7C2859EF4D00F512C4 /* AddressByTextData.swift in Sources */,
 				FE8BE37528556D120036BBCD /* MainViewModel.swift in Sources */,
+				FE3379B3285CBFF300BB7CEF /* DetailAddressLabelView.swift in Sources */,
 				FE679E812859FD6200F512C4 /* AddressSearchState.swift in Sources */,
 				FE8BE38728556E260036BBCD /* LocationData.swift in Sources */,
 				FEF96108285850800009D642 /* JustOneStickView.swift in Sources */,
@@ -641,6 +665,7 @@
 				FE4EDE7F285ADC2D00CBE701 /* SelectAddressTypeStackView.swift in Sources */,
 				FE679E7E2859F2F700F512C4 /* AddressSearchBarViewModel.swift in Sources */,
 				FE1E2F632857437700D6A162 /* AdDocument.swift in Sources */,
+				FE3379AC285C9E9100BB7CEF /* SelectAddressTypeStackViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

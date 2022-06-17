@@ -18,6 +18,9 @@ struct AddressSearchViewModel {
     let cellData: Driver<[SubAddressByTextData]>
     let tableViewState: Signal<AddressSearchState>
     
+    // View -> ViewModel
+    let itemSeleted = PublishRelay<Int>()
+    
     init() {
         popView = navigationBarViewModel.backbuttonTapped.asSignal()
         cellData = searchBarViewModel.data

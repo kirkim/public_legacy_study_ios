@@ -10,6 +10,7 @@ import SnapKit
 
 class AddressSearchCell: UITableViewCell {
     let addressLabel = UILabel()
+    var data: SubAddressByTextData?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -23,11 +24,11 @@ class AddressSearchCell: UITableViewCell {
     }
     
     func setData(_ data: SubAddressByTextData) {
+        self.data = data
         addressLabel.text = data.address_name
     }
     
     private func attribute() {
-        self.backgroundColor = .yellow
         self.selectionStyle = .none
     }
     

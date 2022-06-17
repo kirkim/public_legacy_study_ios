@@ -30,7 +30,6 @@ class DetailAddressTextField: UIView {
         fakeBorderView.layer.borderWidth = 1
 
         textField.delegate = self
-//        textField.placeholder = "예) 기림아파트 101동 101호"
         
         dynamicLabel.text = " 상세 주소 입력 "
         dynamicLabel.textColor = .darkGray

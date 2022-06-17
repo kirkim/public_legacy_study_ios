@@ -18,7 +18,7 @@ class AddressSearchViewController: UIViewController {
     private let topPaddingView = UIView()
     private let customNavigationBar = AddressNavigationBar(title: "주소 검색")
     private let customSearchBar = AddressSearchBar()
-    private let presentMapViewButton = PresentMapView()
+    private let presentMapViewButton = PresentMapView(.currentPoint)
     private let tableView = UITableView()
     private let backgroundView = AddressBackgroundView()
     private let addressNoDataView = AddressNoDataView()
@@ -65,6 +65,15 @@ class AddressSearchViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
+        tableView.rx.itemSelected
+            .subscribe(onNext: { indexPath in
+                let cell = self.tableView.cellForRow(at: indexPath) as! AddressSearchCell
+                guard let data = cell.data else { return }
+                let vc = AddressDetailViewController(data: data)
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.tableViewState
             .emit(onNext: { state in
                 switch state {
@@ -104,10 +113,10 @@ class AddressSearchViewController: UIViewController {
             containerStackView.addArrangedSubview($0)
         }
         
-        let topPadding = 30
+        let topPadding = 25
         let navigationBarHeight = 40
         let searchBarHeight = 40
-        let presentMapViewButtonHeight = 40
+        let presentMapViewButtonHeight = 50
         let containerHeight = topPadding + navigationBarHeight + searchBarHeight + presentMapViewButtonHeight
         
         topPaddingView.snp.makeConstraints {
