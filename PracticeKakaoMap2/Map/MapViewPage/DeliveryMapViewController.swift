@@ -20,41 +20,55 @@ class DeliveryMapViewController: UIViewController {
     private let mapInfoView = MapInfoView()
     private let submitButton = UILabel()
     private let containerStackView = UIStackView()
-    
+    private let currentLocationButton = UIButton()
     
     // 커스텀마커
     private let customMarker = UIImageView(image: UIImage(named: "mapPoint"))
     private let centerPointView = UIView()
     private var customMarkerY: Double?
+    //
+    private var isInitMapPoint: Bool = false
     
     private let viewModel = DeliveryMapViewModel()
     
-    init() {
+    init(mapPoint: MTMapPoint? = nil) {
         super.init(nibName: nil, bundle: nil)
 
         attribute()
         layout()
         bind()
-        temp()
+        initMapView(mapPoint)
     }
     
-    func temp() {
+    private func initMapView(_ mapPoint: MTMapPoint?) {
         mapView.delegate = self
         mapView.setZoomLevel(.zero, animated: true)
         mapView.baseMapType = .standard
         mapView.showCurrentLocationMarker = true
         mapView.currentLocationTrackingMode = .onWithoutHeadingWithoutMapMoving
-//        mapView.currentLocationTrackingMode = .off
-        mapView.setMapCenter(MTMapPoint(geoCoord: MTMapPointGeo(latitude: 37.59673141607238, longitude: 127.01187180606017)), animated: true)
         
+        // 초기화시 지정위치가 있으면 지정위치로 이동
+        if (mapPoint != nil) {
+            isInitMapPoint = true
+            mapView.setMapCenter(mapPoint, animated: true)
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     private func bind() {
-        self.mapInfoView.bind(viewModel.mapInfoViewModel)
+        mapInfoView.bind(viewModel.mapInfoViewModel)
+        
+        viewModel.setMapCenter.emit(to: mapView.rx.setMapCenterPoint).disposed(by: disposeBage)
+
+        currentLocationButton.rx.tap.bind(to: viewModel.currentLocationButtonTapped).disposed(by: disposeBage)
     }
     
     private func attribute() {
@@ -74,6 +88,10 @@ class DeliveryMapViewController: UIViewController {
         
         centerPointView.backgroundColor = .black
         centerPointView.layer.cornerRadius = 5
+        
+        currentLocationButton.setImage(UIImage(systemName: "location.fill"), for: .normal)
+        currentLocationButton.backgroundColor = .white
+        currentLocationButton.layer.cornerRadius = 20
     }
     
     private func layout() {
@@ -81,7 +99,7 @@ class DeliveryMapViewController: UIViewController {
             containerStackView.addArrangedSubview($0)
         }
         
-        [mapView, containerStackView, centerPointView,customMarker].forEach {
+        [mapView, containerStackView, currentLocationButton, centerPointView, customMarker].forEach {
             view.addSubview($0)
         }
         
@@ -105,6 +123,12 @@ class DeliveryMapViewController: UIViewController {
             $0.bottom.equalTo(containerStackView.snp.top)
         }
         
+        currentLocationButton.snp.makeConstraints {
+            $0.width.height.equalTo(40)
+            $0.leading.equalTo(mapView).offset(16)
+            $0.bottom.equalTo(mapView).offset(-16)
+        }
+        
         centerPointView.snp.makeConstraints {
             $0.width.height.equalTo(10)
             $0.centerX.equalTo(mapView.snp.centerX)
@@ -121,10 +145,19 @@ class DeliveryMapViewController: UIViewController {
 
 //MARK: - MTMapViewDelegate
 extension DeliveryMapViewController: MTMapViewDelegate {
-//    func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
-//
-//    }
-       
+    func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
+        viewModel.currentLocation.accept(location)
+//#if DEBUG
+//        viewModel.currentLocation.accept(MTMapPoint(geoCoord: MTMapPointGeo(latitude: 37.394225, longitude: 127.118341)))
+//#else
+//        viewModel.currentLocation.accept(location)
+//#endif
+        if (isInitMapPoint == false) {
+            isInitMapPoint = true
+            viewModel.initSetMapCenter.accept(Void())
+        }
+    }
+    
     func mapView(_ mapView: MTMapView!, dragStartedOn mapPoint: MTMapPoint!) {
         UIView.animate(withDuration: 0.2, delay: 0) { [weak self] in
             self?.customMarker.frame.origin.y = (self?.customMarkerY)! - 20
@@ -142,11 +175,6 @@ extension DeliveryMapViewController: MTMapViewDelegate {
         if (customMarkerY == nil) {
             customMarkerY = customMarker.frame.origin.y
         }
-        let poitem = MTMapPOIItem()
-        poitem.mapPoint = mapCenterPoint
-        poitem.markerType = .redPin
-        mapView.removeAllPOIItems()
-        mapView.add(poitem)
     }
 }
 

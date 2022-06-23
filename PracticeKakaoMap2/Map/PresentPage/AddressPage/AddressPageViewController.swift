@@ -29,6 +29,14 @@ class AddressPageViewController: UIViewController {
         bind()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            self.isModalInPresentation = true
+            self.touchesMoved(<#T##touches: Set<UITouch>##Set<UITouch>#>, with: <#T##UIEvent?#>)
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
@@ -41,12 +49,22 @@ class AddressPageViewController: UIViewController {
     private func bind() {
         self.presentSearchViewButton.rx.tapGesture()
             .when(.recognized)
-            .subscribe(onNext: {_ in
+            .subscribe(onNext: { [weak self] _ in
                 let vc = AddressSearchViewController()
-                self.navigationController?.pushViewController(vc, animated: true)
+                self?.navigationController?.pushViewController(vc, animated: true)
+                
             })
             .disposed(by: disposeBag)
-
+        
+        presentMapViewButton.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                let vc = DeliveryMapViewController()
+//                vc.modalPresentationStyle = .overFullScreen
+//                self?.present(vc, animated: true)
+                self?.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func attribute() {

@@ -33,6 +33,7 @@ class SampleVC: UIViewController {
                 let vc = AddressPageViewController()
 //                let vc = AddressDetailViewController()
                 let nav = UINavigationController(rootViewController: vc)
+                nav.modalPresentationStyle = .pageSheet
                 self.present(nav, animated: true)
             })
             .disposed(by: disposeBag)

@@ -161,13 +161,13 @@ extension MainViewController: MTMapViewDelegate {
 }
 
 // rx extension custom
-extension Reactive where Base: MTMapView {
-    var setMapCenterPoint: Binder<MTMapPoint> {
-        return Binder(base) { base, point in
-            base.setMapCenter(point, animated: true)
-        }
-    }
-}
+//extension Reactive where Base: MTMapView {
+//    var setMapCenterPoint: Binder<MTMapPoint> {
+//        return Binder(base) { base, point in
+//            base.setMapCenter(point, animated: true)
+//        }
+//    }
+//}
 
 extension Reactive where Base: MainViewController {
     var presentAlert: Binder<String> {

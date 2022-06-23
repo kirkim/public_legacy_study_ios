@@ -37,7 +37,7 @@ class MapInfoView: UIView {
             .bind(to: viewModel.tapSwitchButton)
             .disposed(by: disposeBag)
             
-        viewModel.addressType.share()
+        viewModel.addressType
             .bind { [weak self] type in
                 switch type {
                 case .basic:
@@ -55,7 +55,7 @@ class MapInfoView: UIView {
         
         switchButton.backgroundColor = .systemGray4
         switchButton.font = .systemFont(ofSize: 13, weight: .medium)
-        switchButton.layer.cornerRadius = 16
+        switchButton.layer.cornerRadius = 12
         switchButton.layer.masksToBounds = true
     }
     

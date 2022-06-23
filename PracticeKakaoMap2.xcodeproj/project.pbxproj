@@ -33,6 +33,7 @@
 		FE679E85285A017E00F512C4 /* AddressNoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE679E84285A017E00F512C4 /* AddressNoDataView.swift */; };
 		FE679E88285A21F000F512C4 /* AddressDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE679E87285A21F000F512C4 /* AddressDetailViewController.swift */; };
 		FE679E8C285A2CE200F512C4 /* DetailAddressTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE679E8B285A2CE200F512C4 /* DetailAddressTextField.swift */; };
+		FE83246028649AE200378FB8 /* ExtensionReactive+MTMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE83245F28649AE200378FB8 /* ExtensionReactive+MTMapView.swift */; };
 		FE8BE29A285564920036BBCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BE299285564920036BBCD /* AppDelegate.swift */; };
 		FE8BE29C285564920036BBCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BE29B285564920036BBCD /* SceneDelegate.swift */; };
 		FE8BE2A3285564930036BBCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE8BE2A2285564930036BBCD /* Assets.xcassets */; };
@@ -123,6 +124,7 @@
 		FE679E84285A017E00F512C4 /* AddressNoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressNoDataView.swift; sourceTree = "<group>"; };
 		FE679E87285A21F000F512C4 /* AddressDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDetailViewController.swift; sourceTree = "<group>"; };
 		FE679E8B285A2CE200F512C4 /* DetailAddressTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAddressTextField.swift; sourceTree = "<group>"; };
+		FE83245F28649AE200378FB8 /* ExtensionReactive+MTMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtensionReactive+MTMapView.swift"; sourceTree = "<group>"; };
 		FE8BE296285564920036BBCD /* PracticeKakaoMap2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeKakaoMap2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE8BE299285564920036BBCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE8BE29B285564920036BBCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 		FE1E2F712857784A00D6A162 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				FE83245E28649A9900378FB8 /* Extension+Reactive */,
 				FE679E89285A23C300F512C4 /* CustomUI(재사용 클래스) */,
 				FEF96109285858CB0009D642 /* PresentPage */,
 				FE3869772856139E003B6AD5 /* MapViewPage */,
@@ -305,6 +308,14 @@
 				FE3379AD285C9EF400BB7CEF /* SelectAddressTypeStackView */,
 			);
 			path = SubComponents;
+			sourceTree = "<group>";
+		};
+		FE83245E28649A9900378FB8 /* Extension+Reactive */ = {
+			isa = PBXGroup;
+			children = (
+				FE83245F28649AE200378FB8 /* ExtensionReactive+MTMapView.swift */,
+			);
+			path = "Extension+Reactive";
 			sourceTree = "<group>";
 		};
 		FE8BE28D285564920036BBCD = {
@@ -635,6 +646,7 @@
 				FE8BE29C285564920036BBCD /* SceneDelegate.swift in Sources */,
 				FE1E2F5F28571B8400D6A162 /* DeliveryMapViewModel.swift in Sources */,
 				FE1E2F73285778A000D6A162 /* AddressPageViewController.swift in Sources */,
+				FE83246028649AE200378FB8 /* ExtensionReactive+MTMapView.swift in Sources */,
 				FE1E2F6628575C1300D6A162 /* MapInfoView.swift in Sources */,
 				FEF9610D285859900009D642 /* AddressSearchViewController.swift in Sources */,
 				FE1E2F612857432A00D6A162 /* AddressData.swift in Sources */,

@@ -15,10 +15,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-//        let vc = SampleVC()
-        let vc = DeliveryMapViewController()
+        let vc = SampleVC()
+//        let vc = DeliveryMapViewController()
+//        let vc = DeliveryMapViewController(mapPoint: MTMapPoint(geoCoord: MTMapPointGeo(latitude: 37.59673141607238, longitude: 127.01187180606017)))
 //        let vc = MainViewController()
         let nav = UINavigationController(rootViewController: vc)
+        nav.isModalInPresentation = true
         self.window?.rootViewController = nav
         self.window?.makeKeyAndVisible()
     }
