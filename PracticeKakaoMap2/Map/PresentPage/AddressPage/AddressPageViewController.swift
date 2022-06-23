@@ -17,7 +17,7 @@ class AddressPageViewController: UIViewController {
     private let stickView = JustOneStickView()
     private let titleLabel = UILabel()
     private let presentSearchViewButton = PresentAddressSearchView()
-    private let presentMapViewButton = PresentMapView(.currentPoint)
+    private let presentMapViewButton = PresentMapButtonView(.currentPoint)
     
     private let tableView = UITableView()
     

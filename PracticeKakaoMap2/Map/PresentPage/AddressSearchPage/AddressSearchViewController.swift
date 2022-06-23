@@ -18,7 +18,7 @@ class AddressSearchViewController: UIViewController {
     private let topPaddingView = UIView()
     private let customNavigationBar = AddressNavigationBar(title: "주소 검색")
     private let customSearchBar = AddressSearchBar()
-    private let presentMapViewButton = PresentMapView(.currentPoint)
+    private let presentMapViewButton = PresentMapButtonView(.currentPoint)
     private let tableView = UITableView()
     private let backgroundView = AddressBackgroundView()
     private let addressNoDataView = AddressNoDataView()

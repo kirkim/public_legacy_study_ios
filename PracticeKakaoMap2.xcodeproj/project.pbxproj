@@ -89,7 +89,7 @@
 		FE8BE38728556E260036BBCD /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BE38628556E260036BBCD /* LocationData.swift */; };
 		FE8BE38928556E390036BBCD /* MTMapViewError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BE38828556E390036BBCD /* MTMapViewError.swift */; };
 		FEF9610428584B930009D642 /* PresentAddressSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9610328584B930009D642 /* PresentAddressSearchView.swift */; };
-		FEF9610628584DDC0009D642 /* PresentMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9610528584DDC0009D642 /* PresentMapView.swift */; };
+		FEF9610628584DDC0009D642 /* PresentMapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9610528584DDC0009D642 /* PresentMapButtonView.swift */; };
 		FEF96108285850800009D642 /* JustOneStickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF96107285850800009D642 /* JustOneStickView.swift */; };
 		FEF9610D285859900009D642 /* AddressSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9610C285859900009D642 /* AddressSearchViewController.swift */; };
 		FEF9611028585EAE0009D642 /* AddressNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9610F28585EAE0009D642 /* AddressNavigationBar.swift */; };
@@ -186,7 +186,7 @@
 		FE8BE38628556E260036BBCD /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		FE8BE38828556E390036BBCD /* MTMapViewError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTMapViewError.swift; sourceTree = "<group>"; };
 		FEF9610328584B930009D642 /* PresentAddressSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAddressSearchView.swift; sourceTree = "<group>"; };
-		FEF9610528584DDC0009D642 /* PresentMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentMapView.swift; sourceTree = "<group>"; };
+		FEF9610528584DDC0009D642 /* PresentMapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentMapButtonView.swift; sourceTree = "<group>"; };
 		FEF96107285850800009D642 /* JustOneStickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustOneStickView.swift; sourceTree = "<group>"; };
 		FEF9610C285859900009D642 /* AddressSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewController.swift; sourceTree = "<group>"; };
 		FEF9610F28585EAE0009D642 /* AddressNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressNavigationBar.swift; sourceTree = "<group>"; };
@@ -235,13 +235,14 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		FE1E2F712857784A00D6A162 /* MAIN */ = {
+		FE1E2F712857784A00D6A162 /* Map */ = {
 			isa = PBXGroup;
 			children = (
 				FE679E89285A23C300F512C4 /* CustomUI(재사용 클래스) */,
-				FEF96109285858CB0009D642 /* Present */,
+				FEF96109285858CB0009D642 /* PresentPage */,
+				FE3869772856139E003B6AD5 /* MapViewPage */,
 			);
-			path = MAIN;
+			path = Map;
 			sourceTree = "<group>";
 		};
 		FE3379AD285C9EF400BB7CEF /* SelectAddressTypeStackView */ = {
@@ -255,7 +256,7 @@
 			path = SelectAddressTypeStackView;
 			sourceTree = "<group>";
 		};
-		FE3869772856139E003B6AD5 /* Presentation2 */ = {
+		FE3869772856139E003B6AD5 /* MapViewPage */ = {
 			isa = PBXGroup;
 			children = (
 				FE386978285613BC003B6AD5 /* DeliveryMapViewController.swift */,
@@ -264,7 +265,7 @@
 				FE1E2F6428575BC800D6A162 /* SubComponents */,
 				FE1E2F6E2857652000D6A162 /* Entities */,
 			);
-			path = Presentation2;
+			path = MapViewPage;
 			sourceTree = "<group>";
 		};
 		FE679E7F2859FD4900F512C4 /* Entities */ = {
@@ -290,7 +291,7 @@
 			children = (
 				FEF9610F28585EAE0009D642 /* AddressNavigationBar.swift */,
 				FEF96111285862F30009D642 /* AddressNavigationBarViewModel.swift */,
-				FEF9610528584DDC0009D642 /* PresentMapView.swift */,
+				FEF9610528584DDC0009D642 /* PresentMapButtonView.swift */,
 			);
 			name = "CustomUI(재사용 클래스)";
 			path = "CustomUI(재사용 클래스)";
@@ -330,8 +331,7 @@
 				FE8BE299285564920036BBCD /* AppDelegate.swift */,
 				FE8BE29B285564920036BBCD /* SceneDelegate.swift */,
 				FE1E2F742857812500D6A162 /* SampleVC.swift */,
-				FE1E2F712857784A00D6A162 /* MAIN */,
-				FE3869772856139E003B6AD5 /* Presentation2 */,
+				FE1E2F712857784A00D6A162 /* Map */,
 				FE8BE2E5285568680036BBCD /* Presentation */,
 				FE8BE2E3285568680036BBCD /* Entities */,
 				FE8BE2E4285568680036BBCD /* Network */,
@@ -469,14 +469,14 @@
 			path = SubComponents;
 			sourceTree = "<group>";
 		};
-		FEF96109285858CB0009D642 /* Present */ = {
+		FEF96109285858CB0009D642 /* PresentPage */ = {
 			isa = PBXGroup;
 			children = (
 				FEF9610A2858596E0009D642 /* AddressPage */,
 				FEF9610B2858597A0009D642 /* AddressSearchPage */,
 				FE679E86285A218900F512C4 /* AddressDetailInputPage */,
 			);
-			path = Present;
+			path = PresentPage;
 			sourceTree = "<group>";
 		};
 		FEF9610A2858596E0009D642 /* AddressPage */ = {
@@ -659,7 +659,7 @@
 				FE8BE38128556DE20036BBCD /* LocalNetwork.swift in Sources */,
 				FE1E2F752857812500D6A162 /* SampleVC.swift in Sources */,
 				FE8BE38328556DF80036BBCD /* DetailListCellData.swift in Sources */,
-				FEF9610628584DDC0009D642 /* PresentMapView.swift in Sources */,
+				FEF9610628584DDC0009D642 /* PresentMapButtonView.swift in Sources */,
 				FEF9611028585EAE0009D642 /* AddressNavigationBar.swift in Sources */,
 				FE8BE37B28556D8F0036BBCD /* DetailListBackgroundViewModel.swift in Sources */,
 				FE4EDE7F285ADC2D00CBE701 /* SelectAddressTypeStackView.swift in Sources */,
@@ -812,6 +812,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PracticeKakaoMap2/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "내 주변 편의점 찾기용으로 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -845,6 +846,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PracticeKakaoMap2/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "내 주변 편의점 찾기용으로 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

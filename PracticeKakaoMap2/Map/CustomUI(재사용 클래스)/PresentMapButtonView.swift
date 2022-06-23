@@ -13,7 +13,7 @@ enum PresentMapType {
     case targetPoint
 }
 
-class PresentMapView: UIView {
+class PresentMapButtonView: UIView {
     private let logoImageView = UIImageView()
     private let titleLabel = UILabel()
     private let chevronMark = UIImageView()

@@ -18,7 +18,7 @@ class AddressDetailViewController: UIViewController {
     private let addressLabel: DetailAddressLabelView
     private let customTextField = DetailAddressTextField()
     private let selectView = SelectAddressTypeStackView()
-    private let presentMapView = PresentMapView(.targetPoint)
+    private let presentMapButtonView = PresentMapButtonView(.targetPoint)
     private let submitButton = UILabel()
     
     private let viewModel = AddressDetailViewModel()
@@ -117,7 +117,7 @@ class AddressDetailViewController: UIViewController {
         let y = windowHeight - submitButtonHeight - 100.0
         submitButton.frame = CGRect(x: 0.0, y: y, width: windowWidth, height: submitButtonHeight)
         
-        [addressLabel, customTextField, selectView, presentMapView].forEach {
+        [addressLabel, customTextField, selectView, presentMapButtonView].forEach {
             self.containerStackView.addArrangedSubview($0)
         }
         
@@ -133,7 +133,7 @@ class AddressDetailViewController: UIViewController {
             $0.height.equalTo(selectViewHeight)
         }
         
-        presentMapView.snp.makeConstraints {
+        presentMapButtonView.snp.makeConstraints {
             $0.height.equalTo(presentMapHeight)
         }
     }

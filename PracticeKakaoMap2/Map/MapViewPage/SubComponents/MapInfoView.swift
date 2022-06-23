@@ -51,6 +51,7 @@ class MapInfoView: UIView {
     
     private func attribute() {
         addressLabel.font = .systemFont(ofSize: 22, weight: .bold)
+        addressLabel.textColor = .black
         
         switchButton.backgroundColor = .systemGray4
         switchButton.font = .systemFont(ofSize: 13, weight: .medium)
