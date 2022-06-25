@@ -50,10 +50,14 @@ class LocalNetwork {
                     let addressData = try JSONDecoder().decode(AddressData.self, from: data)
                     return .success(addressData)
                 } catch {
+                    print("decodeERROR!!")
                     return .failure(URLError(.cannotParseResponse))
                 }
             }
-            .catch { _ in .just(Result.failure(URLError(.cannotLoadFromNetwork)))}
+            .catch { _ in
+                print("failLoad!!")
+                return .just(Result.failure(URLError(.cannotLoadFromNetwork)))
+            }
             .asSingle()
     }
     

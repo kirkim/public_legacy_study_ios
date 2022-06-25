@@ -10,11 +10,9 @@ import RxCocoa
 
 struct AddressSearchViewModel {
     // SubComponent ViewModel
-    let navigationBarViewModel = AddressNavigationBarViewModel()
     let searchBarViewModel = AddressSearchBarViewModel()
     
     // ViewModel -> View
-    let popView: Signal<Void>
     let cellData: Driver<[SubAddressByTextData]>
     let tableViewState: Signal<AddressSearchState>
     
@@ -22,7 +20,6 @@ struct AddressSearchViewModel {
     let itemSeleted = PublishRelay<Int>()
     
     init() {
-        popView = navigationBarViewModel.backbuttonTapped.asSignal()
         cellData = searchBarViewModel.data
         tableViewState = searchBarViewModel.state.asSignal(onErrorJustReturn: .nothing)
     }

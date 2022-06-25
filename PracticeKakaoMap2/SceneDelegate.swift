@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let vc = MainViewController()
         let nav = UINavigationController(rootViewController: vc)
         nav.isModalInPresentation = true
+        window?.overrideUserInterfaceStyle = .light
         self.window?.rootViewController = nav
         self.window?.makeKeyAndVisible()
     }

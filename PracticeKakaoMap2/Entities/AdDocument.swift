@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct AdDocument: Decodable {
+struct AdDocument: Codable {
     var road_address: SubAdDocument
     var address: SubAdDocument
 }
 
-struct SubAdDocument: Decodable {
+struct SubAdDocument: Codable {
     var address: String
     var address_depth1: String
     var address_depth2: String

@@ -15,10 +15,9 @@ class AddressSearchViewController: UIViewController {
     
     private let containerStackView = UIStackView()
     
-    private let topPaddingView = UIView()
     private let customNavigationBar = AddressNavigationBar(title: "주소 검색")
     private let customSearchBar = AddressSearchBar()
-    private let presentMapViewButton = PresentMapButtonView(.currentPoint)
+    private let presentMapButtonView = PresentMapButtonView(.currentPoint)
     private let tableView = UITableView()
     private let backgroundView = AddressBackgroundView()
     private let addressNoDataView = AddressNoDataView()
@@ -48,14 +47,7 @@ class AddressSearchViewController: UIViewController {
     }
     
     private func bind(_ viewModel: AddressSearchViewModel) {
-        customNavigationBar.bind(viewModel.navigationBarViewModel)
         customSearchBar.bind(viewModel.searchBarViewModel)
-        
-        viewModel.popView
-            .emit(onNext: {
-                self.navigationController?.popViewController(animated: true)
-            })
-            .disposed(by: disposeBag)
         
         viewModel.cellData
             .drive(tableView.rx.items) { tv, row, data in
@@ -92,12 +84,20 @@ class AddressSearchViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        presentMapButtonView.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                let vc = DeliveryMapViewController()
+                self?.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func attribute() {
         view.backgroundColor = .systemGray6
         
-        topPaddingView.backgroundColor = .white
+        customNavigationBar.rootViewController = self
         
         containerStackView.backgroundColor = .white
         containerStackView.axis = .vertical
@@ -109,40 +109,34 @@ class AddressSearchViewController: UIViewController {
     }
     
     private func layout() {
-        [topPaddingView, customNavigationBar, customSearchBar, presentMapViewButton].forEach {
+        [customSearchBar, presentMapButtonView].forEach {
             containerStackView.addArrangedSubview($0)
         }
         
-        let topPadding = 25
-        let navigationBarHeight = 40
         let searchBarHeight = 40
         let presentMapViewButtonHeight = 50
-        let containerHeight = topPadding + navigationBarHeight + searchBarHeight + presentMapViewButtonHeight
-        
-        topPaddingView.snp.makeConstraints {
-            $0.height.equalTo(topPadding)
-        }
-        
-        customNavigationBar.snp.makeConstraints {
-            $0.height.equalTo(navigationBarHeight)
-        }
+//        let containerHeight = navigationBarHeight + searchBarHeight + presentMapViewButtonHeight
         
         customSearchBar.snp.makeConstraints {
             $0.height.equalTo(searchBarHeight)
         }
         
-        presentMapViewButton.snp.makeConstraints {
+        presentMapButtonView.snp.makeConstraints {
             $0.height.equalTo(presentMapViewButtonHeight)
         }
         
-        [containerStackView, addressNoDataView, backgroundView, tableView].forEach {
+        [customNavigationBar, containerStackView, addressNoDataView, backgroundView, tableView].forEach {
             self.view.addSubview($0)
         }
         
+        customNavigationBar.snp.makeConstraints {
+            $0.leading.top.trailing.equalTo(view.safeAreaLayoutGuide)
+        }
+        
         containerStackView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(customNavigationBar.snp.bottom)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(containerHeight)
+//            $0.height.equalTo(containerHeight)
         }
         
         addressNoDataView.snp.makeConstraints {

@@ -29,14 +29,6 @@ class AddressPageViewController: UIViewController {
         bind()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if #available(iOS 13.0, *) {
-            self.isModalInPresentation = true
-            self.touchesMoved(<#T##touches: Set<UITouch>##Set<UITouch>#>, with: <#T##UIEvent?#>)
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true

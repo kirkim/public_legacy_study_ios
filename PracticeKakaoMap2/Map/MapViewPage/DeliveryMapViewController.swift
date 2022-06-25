@@ -14,8 +14,11 @@ import RxGesture
 
 class DeliveryMapViewController: UIViewController {
     private let disposeBage = DisposeBag()
+    private var viewModel: DeliveryMapViewModel?
     
     private let locationManager = CLLocationManager()
+    
+    private let customNavigationBar = AddressNavigationBar(title: "지도에서 위치 확인")
     private let mapView = MTMapView()
     private let mapInfoView = MapInfoView()
     private let submitButton = UILabel()
@@ -28,9 +31,8 @@ class DeliveryMapViewController: UIViewController {
     private var customMarkerY: Double?
     //
     private var isInitMapPoint: Bool = false
-    
-    private let viewModel = DeliveryMapViewModel()
-    
+    private var mapPoint: MTMapPoint?
+        
     init(mapPoint: MTMapPoint? = nil) {
         super.init(nibName: nil, bundle: nil)
 
@@ -46,24 +48,16 @@ class DeliveryMapViewController: UIViewController {
         mapView.baseMapType = .standard
         mapView.showCurrentLocationMarker = true
         mapView.currentLocationTrackingMode = .onWithoutHeadingWithoutMapMoving
-        
+        self.mapPoint = mapPoint
         // 초기화시 지정위치가 있으면 지정위치로 이동
-        if (mapPoint != nil) {
-            isInitMapPoint = true
-            mapView.setMapCenter(mapPoint, animated: true)
-        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false
-    }
-    
-    private func bind() {
+        
+    func bind(_ viewModel:DeliveryMapViewModel = DeliveryMapViewModel()) {
+        self.viewModel = viewModel
         mapInfoView.bind(viewModel.mapInfoViewModel)
         
         viewModel.setMapCenter.emit(to: mapView.rx.setMapCenterPoint).disposed(by: disposeBage)
@@ -74,8 +68,9 @@ class DeliveryMapViewController: UIViewController {
     private func attribute() {
         locationManager.delegate = self
         
-        title = "지도에서 위치 확인"
         view.backgroundColor = .white
+        
+        customNavigationBar.rootViewController = self
         
         containerStackView.axis = .vertical
         containerStackView.distribution = .equalSpacing
@@ -99,16 +94,26 @@ class DeliveryMapViewController: UIViewController {
             containerStackView.addArrangedSubview($0)
         }
         
-        [mapView, containerStackView, currentLocationButton, centerPointView, customMarker].forEach {
-            view.addSubview($0)
-        }
-        
         mapInfoView.snp.makeConstraints {
             $0.height.equalTo(60)
         }
-
+        
         submitButton.snp.makeConstraints {
             $0.height.equalTo(50)
+        }
+        
+        [customNavigationBar, mapView, containerStackView, currentLocationButton, centerPointView, customMarker].forEach {
+            view.addSubview($0)
+        }
+        
+        customNavigationBar.snp.makeConstraints {
+            $0.leading.top.trailing.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        mapView.snp.makeConstraints {
+            $0.top.equalTo(customNavigationBar.snp.bottom).offset(10)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalTo(containerStackView.snp.top)
         }
         
         containerStackView.snp.makeConstraints {
@@ -116,11 +121,6 @@ class DeliveryMapViewController: UIViewController {
             $0.trailing.equalTo(view.safeAreaLayoutGuide).inset(8)
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(180)
-        }
-        
-        mapView.snp.makeConstraints {
-            $0.leading.top.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.bottom.equalTo(containerStackView.snp.top)
         }
         
         currentLocationButton.snp.makeConstraints {
@@ -146,15 +146,23 @@ class DeliveryMapViewController: UIViewController {
 //MARK: - MTMapViewDelegate
 extension DeliveryMapViewController: MTMapViewDelegate {
     func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
-        viewModel.currentLocation.accept(location)
-//#if DEBUG
-//        viewModel.currentLocation.accept(MTMapPoint(geoCoord: MTMapPointGeo(latitude: 37.394225, longitude: 127.118341)))
-//#else
-//        viewModel.currentLocation.accept(location)
-//#endif
+        viewModel!.currentLocation.accept(location)
+#if DEBUG
+        viewModel!.currentLocation.accept(MTMapPoint(geoCoord: MTMapPointGeo(latitude: 37.394225, longitude: 127.118341)))
+#else
+        viewModel!.currentLocation.accept(location)
+#endif
+        
         if (isInitMapPoint == false) {
             isInitMapPoint = true
-            viewModel.initSetMapCenter.accept(Void())
+            if (mapPoint != nil) {
+                mapView.setMapCenter(mapPoint, animated: true)
+                print("넘겼음\(mapPoint!)")
+                viewModel!.mapCenterPoint.accept(mapPoint!)
+            } else {
+                viewModel!.initSetMapCenter.accept(Void())
+                viewModel!.mapCenterPoint.accept(location)
+            }
         }
     }
     
@@ -171,7 +179,7 @@ extension DeliveryMapViewController: MTMapViewDelegate {
     }
     
     func mapView(_ mapView: MTMapView!, finishedMapMoveAnimation mapCenterPoint: MTMapPoint!) {
-        viewModel.mapCenterPoint.accept(mapCenterPoint)
+        viewModel!.mapCenterPoint.accept(mapCenterPoint)
         if (customMarkerY == nil) {
             customMarkerY = customMarker.frame.origin.y
         }

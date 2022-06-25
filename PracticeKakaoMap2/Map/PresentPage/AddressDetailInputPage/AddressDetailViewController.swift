@@ -21,12 +21,11 @@ class AddressDetailViewController: UIViewController {
     private let presentMapButtonView = PresentMapButtonView(.targetPoint)
     private let submitButton = UILabel()
     
-    private let viewModel = AddressDetailViewModel()
-    private let data: SubAddressByTextData
+    private let viewModel: AddressDetailViewModel
     
     init(data: SubAddressByTextData) {
-        self.data = data
         self.addressLabel = DetailAddressLabelView(data)
+        self.viewModel = AddressDetailViewModel(data)
         super.init(nibName: nil, bundle: nil)
         
         attribute()
@@ -50,25 +49,38 @@ class AddressDetailViewController: UIViewController {
         self.removeKeyboardNotifications()
     }
     
+    // 백그라운드 클릭시 키보드가 내려감
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
     func bind(_ viewModel: AddressDetailViewModel) {
         self.selectView.bind(viewModel.selectAddressTypeViewmodel)
-        self.customNavigationBar.bind(viewModel.navigationBarViewModel)
         
-        viewModel.popVC
-            .emit(to: self.rx.popVC)
+        presentMapButtonView.rx.tapGesture()
+            .when(.recognized)
+            .map { _ in return }
+            .bind(to: viewModel.presentMapButtonViewTapped)
             .disposed(by: disposeBag)
         
+        viewModel.presentMapView
+            .emit { targetPoint in
+                let vc = DeliveryMapViewController(mapPoint: targetPoint)
+                vc.bind(viewModel.deliveryMapViewModel)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
     }
-    
+}
+
+//MARK: - attribute, layout 함수
+extension AddressDetailViewController {
     private func attribute() {
         view.backgroundColor = .systemGray5
         
         topPaddingView.backgroundColor = .white
         customNavigationBar.backgroundColor = .white
+        customNavigationBar.rootViewController = self
         submitButton.text = "완료"
         submitButton.backgroundColor = .systemBrown
         submitButton.textColor = .white
@@ -82,27 +94,19 @@ class AddressDetailViewController: UIViewController {
     }
     
     private func layout() {
-        [topPaddingView, customNavigationBar, containerStackView, submitButton].forEach {
+        [customNavigationBar, containerStackView, submitButton].forEach {
             view.addSubview($0)
         }
         
-        let topPadding = 25
-        let navigationHeight = 40
         let addressLabelHeight = 70
         let searchBarHeight = 50
         let selectViewHeight = 70
         let presentMapHeight = 50
         let containerHeight = addressLabelHeight + searchBarHeight + selectViewHeight + presentMapHeight + 30
-        
-        topPaddingView.snp.makeConstraints {
-            $0.leading.top.trailing.equalToSuperview()
-            $0.height.equalTo(topPadding)
-        }
-        
+                
         customNavigationBar.snp.makeConstraints {
-            $0.top.equalTo(topPaddingView.snp.bottom)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(navigationHeight)
         }
         
         containerStackView.snp.makeConstraints {
@@ -137,8 +141,10 @@ class AddressDetailViewController: UIViewController {
             $0.height.equalTo(presentMapHeight)
         }
     }
+
 }
 
+//MARK: - 키보드 노티피케이션
 extension AddressDetailViewController {
     // 노티피케이션을 추가하는 메서드
     func addKeyboardNotifications(){
@@ -179,12 +185,4 @@ extension AddressDetailViewController {
         }
     }
  
-}
-
-extension Reactive where Base: AddressDetailViewController {
-    var popVC: Binder<Void> {
-        return Binder(base) { base, data in
-            base.navigationController?.popViewController(animated: true)
-        }
-    }
 }

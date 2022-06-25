@@ -94,7 +94,6 @@
 		FEF96108285850800009D642 /* JustOneStickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF96107285850800009D642 /* JustOneStickView.swift */; };
 		FEF9610D285859900009D642 /* AddressSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9610C285859900009D642 /* AddressSearchViewController.swift */; };
 		FEF9611028585EAE0009D642 /* AddressNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9610F28585EAE0009D642 /* AddressNavigationBar.swift */; };
-		FEF96112285862F30009D642 /* AddressNavigationBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF96111285862F30009D642 /* AddressNavigationBarViewModel.swift */; };
 		FEF96114285863870009D642 /* AddressSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF96113285863870009D642 /* AddressSearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -192,7 +191,6 @@
 		FEF96107285850800009D642 /* JustOneStickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustOneStickView.swift; sourceTree = "<group>"; };
 		FEF9610C285859900009D642 /* AddressSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewController.swift; sourceTree = "<group>"; };
 		FEF9610F28585EAE0009D642 /* AddressNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressNavigationBar.swift; sourceTree = "<group>"; };
-		FEF96111285862F30009D642 /* AddressNavigationBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressNavigationBarViewModel.swift; sourceTree = "<group>"; };
 		FEF96113285863870009D642 /* AddressSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,14 +227,6 @@
 			path = SubComponents;
 			sourceTree = "<group>";
 		};
-		FE1E2F6E2857652000D6A162 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				FE1E2F6F2857653600D6A162 /* AddressType.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
 		FE1E2F712857784A00D6A162 /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,7 +244,6 @@
 				FE4EDE7E285ADC2D00CBE701 /* SelectAddressTypeStackView.swift */,
 				FE3379AB285C9E9100BB7CEF /* SelectAddressTypeStackViewModel.swift */,
 				FE4EDE80285ADCA700CBE701 /* SelectAddressTypeItemView.swift */,
-				FE3379AE285C9F2800BB7CEF /* SelectAddressType.swift */,
 			);
 			path = SelectAddressTypeStackView;
 			sourceTree = "<group>";
@@ -266,7 +255,6 @@
 				FE1E2F5E28571B8400D6A162 /* DeliveryMapViewModel.swift */,
 				FE4753D42857021400AA2770 /* DeliveryMapModel.swift */,
 				FE1E2F6428575BC800D6A162 /* SubComponents */,
-				FE1E2F6E2857652000D6A162 /* Entities */,
 			);
 			path = MapViewPage;
 			sourceTree = "<group>";
@@ -293,7 +281,6 @@
 			isa = PBXGroup;
 			children = (
 				FEF9610F28585EAE0009D642 /* AddressNavigationBar.swift */,
-				FEF96111285862F30009D642 /* AddressNavigationBarViewModel.swift */,
 				FEF9610528584DDC0009D642 /* PresentMapButtonView.swift */,
 			);
 			name = "CustomUI(재사용 클래스)";
@@ -371,6 +358,7 @@
 		FE8BE2E3285568680036BBCD /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				FE3379AE285C9F2800BB7CEF /* SelectAddressType.swift */,
 				FE8BE38228556DF80036BBCD /* DetailListCellData.swift */,
 				FE8BE38628556E260036BBCD /* LocationData.swift */,
 				FE8BE38428556E0F0036BBCD /* KLDocument.swift */,
@@ -378,6 +366,7 @@
 				FE1E2F602857432A00D6A162 /* AddressData.swift */,
 				FE1E2F622857437700D6A162 /* AdDocument.swift */,
 				FE679E7B2859EF4D00F512C4 /* AddressByTextData.swift */,
+				FE1E2F6F2857653600D6A162 /* AddressType.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -636,7 +625,6 @@
 				FE8BE37328556CEE0036BBCD /* MainViewController.swift in Sources */,
 				FE2601982858D053002D30C8 /* AddressSearchBar.swift in Sources */,
 				FE8BE38928556E390036BBCD /* MTMapViewError.swift in Sources */,
-				FEF96112285862F30009D642 /* AddressNavigationBarViewModel.swift in Sources */,
 				FE3379AF285C9F2800BB7CEF /* SelectAddressType.swift in Sources */,
 				FE679E88285A21F000F512C4 /* AddressDetailViewController.swift in Sources */,
 				FE26019A2858D2F4002D30C8 /* AddressBackgroundView.swift in Sources */,

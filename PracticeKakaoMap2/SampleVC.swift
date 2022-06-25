@@ -33,7 +33,7 @@ class SampleVC: UIViewController {
                 let vc = AddressPageViewController()
 //                let vc = AddressDetailViewController()
                 let nav = UINavigationController(rootViewController: vc)
-                nav.modalPresentationStyle = .pageSheet
+                nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: true)
             })
             .disposed(by: disposeBag)

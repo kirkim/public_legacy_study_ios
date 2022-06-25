@@ -25,6 +25,14 @@ struct DeliveryMapModel {
         let cvsLocationDataResult = mapCenterPoint
             .flatMapLatest(getAddress)
             .share()
+        mapCenterPoint.subscribe(onNext: { value in
+            print("mapcenterPoint: ", value)
+        })
+        .disposed(by: disposeBag)
+        cvsLocationDataResult.subscribe(onNext: { value in
+            print("name: ", value)
+        })
+        .disposed(by: disposeBag)
         
         let cvsLocationDataValue = cvsLocationDataResult
             .compactMap { data -> AddressData? in

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RxCocoa
 import RxSwift
 import RxGesture
 import SnapKit
@@ -14,48 +13,58 @@ import SnapKit
 class AddressNavigationBar: UIView {
     private let disposeBag = DisposeBag()
     
-    private let backButton = UIImageView()
+    private let backButtonLabel = UILabel()
     private let titleLabel = UILabel()
+    
+    var rootViewController: UIViewController?
     
     init(title: String) {
         super.init(frame: CGRect.zero)
         self.titleLabel.text = title
         attribute()
         layout()
+        bind()
     }
     
-    required init?(coder: NSCoder) {
+    required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func bind(_ viewModel: AddressNavigationBarViewModel) {
-        backButton.rx.tapGesture()
+    func bind() {
+        backButtonLabel.rx.tapGesture()
             .when(.recognized)
             .map { _ in return }
-            .bind(to: viewModel.backbuttonTapped)
+            .subscribe(onNext: { [weak self] in
+                self?.rootViewController?.navigationController?.popViewController(animated: true)
+            })
             .disposed(by: disposeBag)
     }
     
     private func attribute() {
         titleLabel.font = .systemFont(ofSize: 18, weight: .medium)
         
-        backButton.image = UIImage(systemName: "arrow.left")
-        backButton.tintColor = .black
+        backButtonLabel.text = "←"
+        backButtonLabel.font = .systemFont(ofSize: 22, weight: .bold)
+        backButtonLabel.textColor = .black
     }
     
     private func layout() {
-        [backButton, titleLabel].forEach {
+        [backButtonLabel, titleLabel].forEach {
             self.addSubview($0)
         }
         
-        backButton.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(8)
-            $0.centerY.equalToSuperview()
+        self.snp.makeConstraints {
+            $0.height.equalTo(60)
+        }
+        
+        backButtonLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(20)
+            $0.centerY.equalToSuperview().offset(10)
         }
         
         titleLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview()
+            $0.centerY.equalToSuperview().offset(10)
         }
     }
 }

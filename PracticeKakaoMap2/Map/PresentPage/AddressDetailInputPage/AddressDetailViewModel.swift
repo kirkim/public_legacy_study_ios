@@ -11,12 +11,27 @@ import RxCocoa
 struct AddressDetailViewModel {
     // child ViewModel
     let selectAddressTypeViewmodel = SelectAddressTypeStackViewModel()
-    let navigationBarViewModel = AddressNavigationBarViewModel()
+    let deliveryMapViewModel = DeliveryMapViewModel()
+    
+    // View -> ViewModel
+    let presentMapButtonViewTapped = PublishRelay<Void>()
+    let dataObserver:BehaviorRelay<SubAddressByTextData>
     
     // ViewModel -> View
-    let popVC: Signal<Void>
+    let presentMapView: Signal<MTMapPoint?>
     
-    init() {
-        popVC = navigationBarViewModel.backbuttonTapped.asSignal()
+    // ChildViewModel -> ViewModel
+    
+    init(_ data: SubAddressByTextData) {
+        dataObserver = BehaviorRelay<SubAddressByTextData>(value: data)
+        
+        presentMapView = dataObserver
+            .map { data in
+                let doubleLatitude: Double = Double(data.y) ?? 0.0
+                let doubleLongitude: Double = Double(data.x) ?? 0.0
+                let targetPoint = MTMapPoint(geoCoord: MTMapPointGeo(latitude: doubleLatitude, longitude: doubleLongitude))
+                return targetPoint
+            }
+            .asSignal(onErrorJustReturn: nil)
     }
 }
