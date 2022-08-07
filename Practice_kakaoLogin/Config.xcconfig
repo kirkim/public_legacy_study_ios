@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  Practice_kakaoLogin
+//
+//  Created by 김기림 on 2022/08/06.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+KAKAO_NATIVE_APP_KEY = bd3a247498c80e5f93538c7e1d92b521
