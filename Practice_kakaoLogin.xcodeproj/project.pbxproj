@@ -14,6 +14,8 @@
 		FE49C6D4289E53FD00D0331B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE49C6D3289E53FD00D0331B /* Assets.xcassets */; };
 		FE49C6D7289E53FD00D0331B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE49C6D5289E53FD00D0331B /* LaunchScreen.storyboard */; };
 		FE49C6E0289E55B400D0331B /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FE49C6DF289E55B400D0331B /* KakaoSDK */; };
+		FE5950B228A08EC300659BDC /* KakaoAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5950B128A08EC300659BDC /* KakaoAuthViewModel.swift */; };
+		FE5950B528A08F9B00659BDC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FE5950B428A08F9B00659BDC /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,7 @@
 		FE49C6D6289E53FD00D0331B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE49C6D8289E53FD00D0331B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE49C6E1289E572600D0331B /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		FE5950B128A08EC300659BDC /* KakaoAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +37,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE49C6E0289E55B400D0331B /* KakaoSDK in Frameworks */,
+				FE5950B528A08F9B00659BDC /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +66,7 @@
 				FE49C6CA289E53FC00D0331B /* AppDelegate.swift */,
 				FE49C6CC289E53FC00D0331B /* SceneDelegate.swift */,
 				FE49C6CE289E53FC00D0331B /* ViewController.swift */,
+				FE5950B128A08EC300659BDC /* KakaoAuthViewModel.swift */,
 				FE49C6D0289E53FC00D0331B /* Main.storyboard */,
 				FE49C6D3289E53FD00D0331B /* Assets.xcassets */,
 				FE49C6D5289E53FD00D0331B /* LaunchScreen.storyboard */,
@@ -89,6 +94,7 @@
 			name = Practice_kakaoLogin;
 			packageProductDependencies = (
 				FE49C6DF289E55B400D0331B /* KakaoSDK */,
+				FE5950B428A08F9B00659BDC /* SnapKit */,
 			);
 			productName = Practice_kakaoLogin;
 			productReference = FE49C6C7289E53FC00D0331B /* Practice_kakaoLogin.app */;
@@ -120,6 +126,7 @@
 			mainGroup = FE49C6BE289E53FC00D0331B;
 			packageReferences = (
 				FE49C6DE289E55B400D0331B /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				FE5950B328A08F9B00659BDC /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = FE49C6C8289E53FC00D0331B /* Products */;
 			projectDirPath = "";
@@ -148,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE5950B228A08EC300659BDC /* KakaoAuthViewModel.swift in Sources */,
 				FE49C6CF289E53FC00D0331B /* ViewController.swift in Sources */,
 				FE49C6CB289E53FC00D0331B /* AppDelegate.swift in Sources */,
 				FE49C6CD289E53FC00D0331B /* SceneDelegate.swift in Sources */,
@@ -384,6 +392,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		FE5950B328A08F9B00659BDC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -391,6 +407,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FE49C6DE289E55B400D0331B /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDK;
+		};
+		FE5950B428A08F9B00659BDC /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE5950B328A08F9B00659BDC /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
