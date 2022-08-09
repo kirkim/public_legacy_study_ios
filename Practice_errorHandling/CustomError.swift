@@ -8,11 +8,11 @@
 import Foundation
 
 enum CustomError: Error {
-case badURL
-case urlSessionError
-case responseError
-case responseCodeError(code: Int)
-case noImageData
+    case badURL
+    case urlSessionError
+    case responseError
+    case responseCodeError(code: Int)
+    case noImageData
     
     var description:String {
         switch self {
