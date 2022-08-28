@@ -38,7 +38,7 @@ class Cell: UITableViewCell {
     
     public func configure(_ data: Item) {
         label.text = data.title
-        checkLabel.isHidden = data.done
+        checkLabel.isHidden = !data.done
     }
     
     private func layout() {
