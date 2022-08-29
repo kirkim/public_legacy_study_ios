@@ -6,18 +6,17 @@
 //
 
 import UIKit
-import CoreData
 
 class CategoryTableViewController: UITableViewController {
     
-    var categories = [Category]()
-    
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private let categoryCoreDataManager = CategoryCoreDataManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadCategories()
+        categoryCoreDataManager.loadCategories {
+            self.tableView.reloadData()
+        }
     }
     
     //MARK: - Add New Category
@@ -29,12 +28,9 @@ class CategoryTableViewController: UITableViewController {
         
         let action = UIAlertAction(title: "Add", style: .default) { action in
             
-            let newCategory = Category(context: self.context)
-            newCategory.name = textField.text!
-            
-            self.categories.append(newCategory)
-            
-            self.saveCategories()
+            self.categoryCoreDataManager.addCategories(title: textField.text!) {
+                self.tableView.reloadData()
+            }
         }
         
         alert.addAction(action)
@@ -49,13 +45,13 @@ class CategoryTableViewController: UITableViewController {
     
     //MARK: - TableView Datasource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        return categoryCoreDataManager.getCountCategories()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
-        cell.textLabel?.text = categories[indexPath.row].name
-        
+        cell.textLabel?.text = categoryCoreDataManager.getCategory(row: indexPath.row)
+            .name
         return cell
     }
     
@@ -69,35 +65,7 @@ class CategoryTableViewController: UITableViewController {
         let destinationVC = segue.destination as! ViewController
         
         if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.selectedCategory = categories[indexPath.row]
+            destinationVC.itemCoreDataManager = ItemCoreDataManager(category: categoryCoreDataManager.getCategory(row: indexPath.row))
         }
-    }
-    
-    //MARK: - Add New Categories
-    
-    
-    //MARK: - Data Manipulation Methods
-    
-    func saveCategories() {
-        do {
-            try context.save()
-        } catch {
-            print("Error saving category \(error)")
-        }
-        
-        tableView.reloadData()
-    }
-    
-    func loadCategories() {
-        
-        let request: NSFetchRequest<Category> = Category.fetchRequest()
-        
-        do {
-            categories = try context.fetch(request)
-        } catch {
-            print("Error loading categories \(error)")
-        }
-        
-        tableView.reloadData()
     }
 }
