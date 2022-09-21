@@ -8,7 +8,7 @@
 import UIKit
 import Moya
 
-class ViewController: UIViewController {
+class Practice1ViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var totalLabel: UILabel!
@@ -26,15 +26,15 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UISearchBarDelegate {
+extension Practice1ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let provider = MoyaProvider<SampleAPI>()
         provider.request(.searchImage("1", searchBar.text ?? "")) { [weak self] result in
             switch result {
             case let .success(response):
                 let result = try? response.map(SearchImage.self)
-                
-                let url = URL(string: result?.results[0].urls.regular ?? "")
+                guard let firstData = result?.results.first else { return }
+                let url = URL(string: firstData.urls.regular)
                 DispatchQueue.global().async { [weak self] in
                     if let data = try? Data(contentsOf: url!) {
                         if let image = UIImage(data: data) {
@@ -45,7 +45,7 @@ extension ViewController: UISearchBarDelegate {
                     }
                 }
                 self?.totalLabel.text = String(result?.total ?? 0) + "개"
-                self?.createdAtLabel.text = result?.results[0].createdAt
+                self?.createdAtLabel.text = firstData.createdAt
             case let .failure(error):
                 print(error.localizedDescription)
             }

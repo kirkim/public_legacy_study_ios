@@ -31,7 +31,6 @@ extension SampleAPI: TargetType {
         }
     }
     
-  
     var sampleData: Data {
         switch self {
         case .searchImage(_, _):
