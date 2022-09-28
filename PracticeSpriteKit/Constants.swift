@@ -13,4 +13,9 @@ enum Particle {
 
 enum Layer {
     static let starfield: CGFloat = 0
+    static let meteor: CGFloat = 1
+}
+
+enum Atlas {
+    static let gameobjects = SKTextureAtlas(named: "Gameobjects")
 }
