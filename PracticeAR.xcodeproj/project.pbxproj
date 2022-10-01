@@ -14,11 +14,16 @@
 		FE00065428E04A3C000E4661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE00065328E04A3C000E4661 /* Assets.xcassets */; };
 		FE00065728E04A3C000E4661 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE00065528E04A3C000E4661 /* LaunchScreen.storyboard */; };
 		FE00066028E0952C000E4661 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE00065F28E0952C000E4661 /* TextViewController.swift */; };
+		FE2FD75328E8463C00470214 /* DetectingPlanesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2FD75128E8463C00470214 /* DetectingPlanesViewController.swift */; };
+		FE2FD75428E8463C00470214 /* DetectingPlanesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2FD75228E8463C00470214 /* DetectingPlanesViewController.xib */; };
+		FE2FD75628E84DB000470214 /* OverlayingPlanesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2FD75528E84DB000470214 /* OverlayingPlanesViewController.swift */; };
+		FE2FD75A28E84E7F00470214 /* OverlayPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2FD75928E84E7F00470214 /* OverlayPlane.swift */; };
 		FE4613D528E0977200FCD94E /* MultipleObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4613D428E0977200FCD94E /* MultipleObjectViewController.swift */; };
 		FE4613D728E09A0700FCD94E /* earth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE4613D628E09A0700FCD94E /* earth.jpg */; };
 		FE4613D928E09A1000FCD94E /* wood.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = FE4613D828E09A1000FCD94E /* wood.jpeg */; };
 		FE4613DC28E09BB100FCD94E /* SimpleBoxWithTouchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4613DB28E09BB100FCD94E /* SimpleBoxWithTouchViewController.swift */; };
 		FE4613E028E09DC600FCD94E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4613DF28E09DC600FCD94E /* Extensions.swift */; };
+		FEB592E428E84597001E5DA0 /* RemoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB592E328E84597001E5DA0 /* RemoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,11 +35,16 @@
 		FE00065328E04A3C000E4661 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE00065628E04A3C000E4661 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE00065F28E0952C000E4661 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		FE2FD75128E8463C00470214 /* DetectingPlanesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectingPlanesViewController.swift; sourceTree = "<group>"; };
+		FE2FD75228E8463C00470214 /* DetectingPlanesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetectingPlanesViewController.xib; sourceTree = "<group>"; };
+		FE2FD75528E84DB000470214 /* OverlayingPlanesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayingPlanesViewController.swift; sourceTree = "<group>"; };
+		FE2FD75928E84E7F00470214 /* OverlayPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayPlane.swift; sourceTree = "<group>"; };
 		FE4613D428E0977200FCD94E /* MultipleObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleObjectViewController.swift; sourceTree = "<group>"; };
 		FE4613D628E09A0700FCD94E /* earth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth.jpg; sourceTree = "<group>"; };
 		FE4613D828E09A1000FCD94E /* wood.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wood.jpeg; sourceTree = "<group>"; };
 		FE4613DB28E09BB100FCD94E /* SimpleBoxWithTouchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBoxWithTouchViewController.swift; sourceTree = "<group>"; };
 		FE4613DF28E09DC600FCD94E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		FEB592E328E84597001E5DA0 /* RemoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,13 +77,11 @@
 		FE00064928E04A3B000E4661 /* PracticeAR */ = {
 			isa = PBXGroup;
 			children = (
+				FEB592DD28E84476001E5DA0 /* New Group */,
 				FE00064A28E04A3B000E4661 /* AppDelegate.swift */,
 				FE4613DF28E09DC600FCD94E /* Extensions.swift */,
 				FE00064C28E04A3B000E4661 /* art.scnassets */,
-				FE00065D28E094F1000E4661 /* RedSquare */,
-				FE00065E28E094FD000E4661 /* Text */,
-				FE4613D328E0974200FCD94E /* MultipleObject */,
-				FE4613DA28E09B9300FCD94E /* BoxWithTouch */,
+				FEB592DE28E84482001E5DA0 /* Basic */,
 				FE00065028E04A3B000E4661 /* Main.storyboard */,
 				FE00065328E04A3C000E4661 /* Assets.xcassets */,
 				FE00065528E04A3C000E4661 /* LaunchScreen.storyboard */,
@@ -97,6 +105,24 @@
 			path = Text;
 			sourceTree = "<group>";
 		};
+		FE2FD75728E84E2600470214 /* DetectingPlane */ = {
+			isa = PBXGroup;
+			children = (
+				FE2FD75128E8463C00470214 /* DetectingPlanesViewController.swift */,
+				FE2FD75228E8463C00470214 /* DetectingPlanesViewController.xib */,
+			);
+			path = DetectingPlane;
+			sourceTree = "<group>";
+		};
+		FE2FD75828E84E2F00470214 /* OverlayPlane */ = {
+			isa = PBXGroup;
+			children = (
+				FE2FD75528E84DB000470214 /* OverlayingPlanesViewController.swift */,
+				FE2FD75928E84E7F00470214 /* OverlayPlane.swift */,
+			);
+			path = OverlayPlane;
+			sourceTree = "<group>";
+		};
 		FE4613D328E0974200FCD94E /* MultipleObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +139,27 @@
 				FE4613DB28E09BB100FCD94E /* SimpleBoxWithTouchViewController.swift */,
 			);
 			path = BoxWithTouch;
+			sourceTree = "<group>";
+		};
+		FEB592DD28E84476001E5DA0 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				FEB592E328E84597001E5DA0 /* RemoteViewController.swift */,
+				FE2FD75828E84E2F00470214 /* OverlayPlane */,
+				FE2FD75728E84E2600470214 /* DetectingPlane */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		FEB592DE28E84482001E5DA0 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				FE00065D28E094F1000E4661 /* RedSquare */,
+				FE00065E28E094FD000E4661 /* Text */,
+				FE4613D328E0974200FCD94E /* MultipleObject */,
+				FE4613DA28E09B9300FCD94E /* BoxWithTouch */,
+			);
+			path = Basic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE2FD75428E8463C00470214 /* DetectingPlanesViewController.xib in Resources */,
 				FE00064D28E04A3B000E4661 /* art.scnassets in Resources */,
 				FE4613D728E09A0700FCD94E /* earth.jpg in Resources */,
 				FE00065728E04A3C000E4661 /* LaunchScreen.storyboard in Resources */,
@@ -189,12 +237,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE2FD75328E8463C00470214 /* DetectingPlanesViewController.swift in Sources */,
+				FEB592E428E84597001E5DA0 /* RemoteViewController.swift in Sources */,
 				FE00064F28E04A3B000E4661 /* RedSquareViewController.swift in Sources */,
 				FE4613E028E09DC600FCD94E /* Extensions.swift in Sources */,
 				FE00064B28E04A3B000E4661 /* AppDelegate.swift in Sources */,
 				FE00066028E0952C000E4661 /* TextViewController.swift in Sources */,
 				FE4613D528E0977200FCD94E /* MultipleObjectViewController.swift in Sources */,
+				FE2FD75628E84DB000470214 /* OverlayingPlanesViewController.swift in Sources */,
 				FE4613DC28E09BB100FCD94E /* SimpleBoxWithTouchViewController.swift in Sources */,
+				FE2FD75A28E84E7F00470214 /* OverlayPlane.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

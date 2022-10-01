@@ -68,6 +68,15 @@
                                     <segue destination="cgU-s6-tEX" kind="push" id="81I-kS-6a6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjt-Du-1bD">
+                                <rect key="frame" x="88" y="544" width="33" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="2"/>
+                                <connections>
+                                    <segue destination="8r1-EK-xBz" kind="push" id="cGP-LF-2Wu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xcz-lE-Ifi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -77,6 +86,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3G-cJ-w5c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-711.59420289855075" y="124.55357142857142"/>
+        </scene>
+        <!--Remote View Controller-->
+        <scene sceneID="9KI-Cx-IqA">
+            <objects>
+                <viewController id="8r1-EK-xBz" customClass="RemoteViewController" customModule="PracticeAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u98-UM-Xcc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vG7-pe-3j0">
+                                <rect key="frame" x="130" y="135" width="156" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="detecting PlaneView"/>
+                                <connections>
+                                    <action selector="handleFirstCase:" destination="8r1-EK-xBz" eventType="touchUpInside" id="Oew-in-lTn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIB-Js-O5i">
+                                <rect key="frame" x="140" y="219" width="136" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="OverlayingPlanes"/>
+                                <connections>
+                                    <action selector="handleFirstCase:" destination="8r1-EK-xBz" eventType="touchUpInside" id="kmU-Y3-ia0"/>
+                                    <action selector="handleOverlayingPlanes:" destination="8r1-EK-xBz" eventType="touchUpInside" id="dgl-GG-5qx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QP5-5x-QJm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Zo7-St-J57"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fNo-BF-e89" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1607" y="880"/>
         </scene>
         <!--Simple Box With View Controller-->
         <scene sceneID="Lgo-bw-ERw">
