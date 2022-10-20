@@ -1,0 +1,34 @@
+PODS:
+  - IKEventSource (3.0.1)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - IKEventSource
+  - RxCocoa (~> 6.5.0)
+  - RxSwift (~> 6.5.0)
+  - SnapKit (~> 5.0.1)
+
+SPEC REPOS:
+  trunk:
+    - IKEventSource
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SnapKit
+
+SPEC CHECKSUMS:
+  IKEventSource: ababa323587c6b0c250dd54d4a48ab68fd845e8e
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: 89860f0c07cc59fcb118afcc5abc773fff2b72f7
+
+COCOAPODS: 1.11.3
