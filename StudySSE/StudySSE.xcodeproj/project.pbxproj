@@ -8,14 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		CCF5697F6A8BDEF292936F10 /* Pods_StudySSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845A9DE549609A0BC4594590 /* Pods_StudySSE.framework */; };
+		FE56983329020A01009FFD3E /* MoyaSSE.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE56983229020A01009FFD3E /* MoyaSSE.swift */; };
+		FE56983529020F68009FFD3E /* AnifaceSSETextWithMoya.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE56983429020F68009FFD3E /* AnifaceSSETextWithMoya.swift */; };
+		FE5698372902260C009FFD3E /* UrlSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5698362902260C009FFD3E /* UrlSessionManager.swift */; };
+		FE56983929022691009FFD3E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE56983829022691009FFD3E /* UIImage+Extension.swift */; };
+		FE56983B290227FB009FFD3E /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE56983A290227FB009FFD3E /* ImageData.swift */; };
+		FE56983D2902579A009FFD3E /* SSEData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE56983C2902579A009FFD3E /* SSEData.swift */; };
 		FEA5A87F29013071007C3752 /* AnifaceSSETest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA5A87E29013071007C3752 /* AnifaceSSETest.swift */; };
-		FEA5A882290133BE007C3752 /* CustomEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA5A881290133BE007C3752 /* CustomEvent.swift */; };
 		FEA5A884290133D8007C3752 /* CustomEventSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA5A883290133D8007C3752 /* CustomEventSource.swift */; };
-		FEA5A886290133F9007C3752 /* CustomEventStreamParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA5A885290133F9007C3752 /* CustomEventStreamParser.swift */; };
 		FED8A96A28FE8D1F00876CF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED8A96928FE8D1F00876CF9 /* AppDelegate.swift */; };
 		FED8A96C28FE8D1F00876CF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED8A96B28FE8D1F00876CF9 /* SceneDelegate.swift */; };
-		FED8A96E28FE8D1F00876CF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED8A96D28FE8D1F00876CF9 /* ViewController.swift */; };
-		FED8A97128FE8D1F00876CF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FED8A96F28FE8D1F00876CF9 /* Main.storyboard */; };
 		FED8A97328FE8D2000876CF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FED8A97228FE8D2000876CF9 /* Assets.xcassets */; };
 		FED8A97628FE8D2000876CF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FED8A97428FE8D2000876CF9 /* LaunchScreen.storyboard */; };
 		FED8A97E28FE8D5400876CF9 /* TestSSEVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED8A97D28FE8D5400876CF9 /* TestSSEVC.swift */; };
@@ -25,15 +27,17 @@
 		64759ED476265548F692D3FF /* Pods-StudySSE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudySSE.debug.xcconfig"; path = "Target Support Files/Pods-StudySSE/Pods-StudySSE.debug.xcconfig"; sourceTree = "<group>"; };
 		845A9DE549609A0BC4594590 /* Pods_StudySSE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudySSE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD5356B3B910319A693927F9 /* Pods-StudySSE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudySSE.release.xcconfig"; path = "Target Support Files/Pods-StudySSE/Pods-StudySSE.release.xcconfig"; sourceTree = "<group>"; };
+		FE56983229020A01009FFD3E /* MoyaSSE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaSSE.swift; sourceTree = "<group>"; };
+		FE56983429020F68009FFD3E /* AnifaceSSETextWithMoya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnifaceSSETextWithMoya.swift; sourceTree = "<group>"; };
+		FE5698362902260C009FFD3E /* UrlSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlSessionManager.swift; sourceTree = "<group>"; };
+		FE56983829022691009FFD3E /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		FE56983A290227FB009FFD3E /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
+		FE56983C2902579A009FFD3E /* SSEData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEData.swift; sourceTree = "<group>"; };
 		FEA5A87E29013071007C3752 /* AnifaceSSETest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnifaceSSETest.swift; sourceTree = "<group>"; };
-		FEA5A881290133BE007C3752 /* CustomEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEvent.swift; sourceTree = "<group>"; };
 		FEA5A883290133D8007C3752 /* CustomEventSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEventSource.swift; sourceTree = "<group>"; };
-		FEA5A885290133F9007C3752 /* CustomEventStreamParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEventStreamParser.swift; sourceTree = "<group>"; };
 		FED8A96628FE8D1F00876CF9 /* StudySSE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudySSE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FED8A96928FE8D1F00876CF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FED8A96B28FE8D1F00876CF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FED8A96D28FE8D1F00876CF9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FED8A97028FE8D1F00876CF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FED8A97228FE8D2000876CF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FED8A97528FE8D2000876CF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FED8A97728FE8D2000876CF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,12 +73,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FE5698312902086E009FFD3E /* Moya */ = {
+			isa = PBXGroup;
+			children = (
+				FE56983229020A01009FFD3E /* MoyaSSE.swift */,
+				FE56983829022691009FFD3E /* UIImage+Extension.swift */,
+				FE5698362902260C009FFD3E /* UrlSessionManager.swift */,
+				FE56983A290227FB009FFD3E /* ImageData.swift */,
+			);
+			path = Moya;
+			sourceTree = "<group>";
+		};
 		FEA5A880290133A9007C3752 /* CustomEvnetSource */ = {
 			isa = PBXGroup;
 			children = (
-				FEA5A881290133BE007C3752 /* CustomEvent.swift */,
 				FEA5A883290133D8007C3752 /* CustomEventSource.swift */,
-				FEA5A885290133F9007C3752 /* CustomEventStreamParser.swift */,
+				FE56983C2902579A009FFD3E /* SSEData.swift */,
 			);
 			path = CustomEvnetSource;
 			sourceTree = "<group>";
@@ -100,13 +114,13 @@
 		FED8A96828FE8D1F00876CF9 /* StudySSE */ = {
 			isa = PBXGroup;
 			children = (
+				FE5698312902086E009FFD3E /* Moya */,
 				FEA5A880290133A9007C3752 /* CustomEvnetSource */,
 				FED8A96928FE8D1F00876CF9 /* AppDelegate.swift */,
 				FED8A96B28FE8D1F00876CF9 /* SceneDelegate.swift */,
-				FED8A96D28FE8D1F00876CF9 /* ViewController.swift */,
 				FED8A97D28FE8D5400876CF9 /* TestSSEVC.swift */,
 				FEA5A87E29013071007C3752 /* AnifaceSSETest.swift */,
-				FED8A96F28FE8D1F00876CF9 /* Main.storyboard */,
+				FE56983429020F68009FFD3E /* AnifaceSSETextWithMoya.swift */,
 				FED8A97228FE8D2000876CF9 /* Assets.xcassets */,
 				FED8A97428FE8D2000876CF9 /* LaunchScreen.storyboard */,
 				FED8A97728FE8D2000876CF9 /* Info.plist */,
@@ -176,7 +190,6 @@
 			files = (
 				FED8A97628FE8D2000876CF9 /* LaunchScreen.storyboard in Resources */,
 				FED8A97328FE8D2000876CF9 /* Assets.xcassets in Resources */,
-				FED8A97128FE8D1F00876CF9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,13 +242,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FED8A96E28FE8D1F00876CF9 /* ViewController.swift in Sources */,
 				FED8A96A28FE8D1F00876CF9 /* AppDelegate.swift in Sources */,
+				FE56983D2902579A009FFD3E /* SSEData.swift in Sources */,
+				FE56983529020F68009FFD3E /* AnifaceSSETextWithMoya.swift in Sources */,
 				FED8A97E28FE8D5400876CF9 /* TestSSEVC.swift in Sources */,
-				FEA5A882290133BE007C3752 /* CustomEvent.swift in Sources */,
+				FE56983B290227FB009FFD3E /* ImageData.swift in Sources */,
+				FE56983929022691009FFD3E /* UIImage+Extension.swift in Sources */,
+				FE56983329020A01009FFD3E /* MoyaSSE.swift in Sources */,
+				FE5698372902260C009FFD3E /* UrlSessionManager.swift in Sources */,
 				FED8A96C28FE8D1F00876CF9 /* SceneDelegate.swift in Sources */,
 				FEA5A87F29013071007C3752 /* AnifaceSSETest.swift in Sources */,
-				FEA5A886290133F9007C3752 /* CustomEventStreamParser.swift in Sources */,
 				FEA5A884290133D8007C3752 /* CustomEventSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,14 +259,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FED8A96F28FE8D1F00876CF9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FED8A97028FE8D1F00876CF9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FED8A97428FE8D2000876CF9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -389,9 +397,9 @@
 				INFOPLIST_FILE = StudySSE/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -399,9 +407,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sss.StudySSE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -418,9 +429,9 @@
 				INFOPLIST_FILE = StudySSE/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -428,9 +439,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sss.StudySSE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

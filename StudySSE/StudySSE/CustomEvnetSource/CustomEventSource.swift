@@ -37,11 +37,6 @@ public protocol CustomEventSourceProtocol {
     /// Method used to disconnect from server.
     func disconnect()
 
-    /// Returns the list of event names that we are currently listening for.
-    ///
-    /// - Returns: List of event names.
-    func events() -> [String]
-
     /// Callback called when EventSource has successfully connected to the server.
     ///
     /// - Parameter onOpenCallback: callback
@@ -54,25 +49,10 @@ public protocol CustomEventSourceProtocol {
     /// enought for you to take a decition if you should reconnect or not.
     /// - Parameter onOpenCallback: callback
     func onComplete(_ onComplete: @escaping ((Int?, Bool?, NSError?) -> Void))
-
-    /// This callback is called everytime an event with name "message" or no name is received.
-    func onMessage(_ onMessageCallback: @escaping ((_ id: String?, _ event: String?, _ data: String?) -> Void))
-
-    /// Add an event handler for an specific event name.
-    ///
-    /// - Parameters:
-    ///   - event: name of the event to receive
-    ///   - handler: this handler will be called everytime an event is received with this event-name
-    func addEventListener(_ event: String,
-                          handler: @escaping ((_ id: String?, _ event: String?, _ data: String?) -> Void))
-
-    /// Remove an event handler for the event-name
-    ///
-    /// - Parameter event: name of the listener to be remove from event source.
-    func removeEventListener(_ event: String)
 }
 
 open class CustomEventSource: NSObject, CustomEventSourceProtocol, URLSessionDataDelegate {
+    
     static let DefaultRetryTime = 3000
 
     public let url: URL
@@ -83,10 +63,7 @@ open class CustomEventSource: NSObject, CustomEventSourceProtocol, URLSessionDat
 
     private var onOpenCallback: (() -> Void)?
     private var onComplete: ((Int?, Bool?, NSError?) -> Void)?
-    private var onMessageCallback: ((_ id: String?, _ event: String?, _ data: String?) -> Void)?
-    private var eventListeners: [String: (_ id: String?, _ event: String?, _ data: String?) -> Void] = [:]
 
-    private var eventStreamParser: CustomEventStreamParser?
     private var operationQueue: OperationQueue
     private var mainQueue = DispatchQueue.main
     private var urlSession: URLSession?
@@ -106,12 +83,21 @@ open class CustomEventSource: NSObject, CustomEventSourceProtocol, URLSessionDat
     }
 
     public func connect(lastEventId: String? = nil) {
-        eventStreamParser = CustomEventStreamParser()
         readyState = .connecting
 
         let configuration = sessionConfiguration(lastEventId: lastEventId)
         urlSession = URLSession(configuration: configuration, delegate: self, delegateQueue: operationQueue)
-        urlSession?.dataTask(with: url).resume()
+        //TODO: - body 넣기
+        var request = URLRequest(url: url)
+        let postData = SSEData(imageID: "sample")
+        guard let jsonData = try? JSONEncoder().encode(postData) else { return }
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.addValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
+        request.method = .post
+        request.httpBody = jsonData
+    
+        urlSession?.dataTask(with: request).resume()
+//        urlSession?.dataTask(with: url).resume()
     }
 
     public func disconnect() {
@@ -127,32 +113,14 @@ open class CustomEventSource: NSObject, CustomEventSourceProtocol, URLSessionDat
         self.onComplete = onComplete
     }
 
-    public func onMessage(_ onMessageCallback: @escaping ((_ id: String?, _ event: String?, _ data: String?) -> Void)) {
-        self.onMessageCallback = onMessageCallback
-    }
-
-    public func addEventListener(_ event: String,
-                                 handler: @escaping ((_ id: String?, _ event: String?, _ data: String?) -> Void)) {
-        eventListeners[event] = handler
-    }
-
-    public func removeEventListener(_ event: String) {
-        eventListeners.removeValue(forKey: event)
-    }
-
-    public func events() -> [String] {
-        return Array(eventListeners.keys)
-    }
-
     open func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
 
         if readyState != .open {
             return
         }
-
-        if let events = eventStreamParser?.append(data: data) {
-            notifyReceivedEvents(events)
-        }
+        print(data)
+        let stringValue = String(decoding: data, as: UTF8.self)
+        print(stringValue)
     }
 
     open func urlSession(_ session: URLSession,
@@ -198,9 +166,12 @@ internal extension CustomEventSource {
         if let eventID = lastEventId {
             additionalHeaders["Last-Event-Id"] = eventID
         }
-
-        additionalHeaders["Accept"] = "text/event-stream"
+        additionalHeaders["Content-Type"] = "text/event-stream"
+        additionalHeaders["accept"] = "text/event-stream"
         additionalHeaders["Cache-Control"] = "no-cache"
+        additionalHeaders["Connection"] = "keep-alive"
+//        additionalHeaders["charaterencoder"] = "utf-8"
+//        additionalHeaders["Cache-Control"] = "no-cache"
 
         let sessionConfiguration = URLSessionConfiguration.default
         sessionConfiguration.timeoutIntervalForRequest = TimeInterval(INT_MAX)
@@ -216,26 +187,6 @@ internal extension CustomEventSource {
 }
 
 private extension CustomEventSource {
-
-    func notifyReceivedEvents(_ events: [CustomEvent]) {
-
-        for event in events {
-            lastEventId = event.id
-            retryTime = event.retryTime ?? CustomEventSource.DefaultRetryTime
-
-            if event.onlyRetryEvent == true {
-                continue
-            }
-
-            if event.event == nil || event.event == "message" {
-                mainQueue.async { [weak self] in self?.onMessageCallback?(event.id, "message", event.data) }
-            }
-
-            if let eventName = event.event, let eventHandler = eventListeners[eventName] {
-                mainQueue.async { eventHandler(event.id, event.event, event.data) }
-            }
-        }
-    }
 
     // Following "5 Processing model" from:
     // https://www.w3.org/TR/2009/WD-eventsource-20090421/#handler-eventsource-onerror
