@@ -32,7 +32,7 @@ public protocol CustomEventSourceProtocol {
     /// Method used to connect to server. It can receive an optional lastEventId indicating the Last-Event-ID
     ///
     /// - Parameter lastEventId: optional value that is going to be added on the request header to server.
-    func connect(lastEventId: String?)
+    func connect(eventId: String)
 
     /// Method used to disconnect from server.
     func disconnect()
@@ -82,22 +82,17 @@ open class CustomEventSource: NSObject, CustomEventSourceProtocol, URLSessionDat
         super.init()
     }
 
-    public func connect(lastEventId: String? = nil) {
+    public func connect(eventId: String) {
         readyState = .connecting
 
-        let configuration = sessionConfiguration(lastEventId: lastEventId)
+        let configuration = sessionConfiguration(eventId: eventId)
         urlSession = URLSession(configuration: configuration, delegate: self, delegateQueue: operationQueue)
-        //TODO: - body 넣기
         var request = URLRequest(url: url)
-        let postData = SSEData(imageID: "sample")
-        guard let jsonData = try? JSONEncoder().encode(postData) else { return }
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.addValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
-        request.method = .post
-        request.httpBody = jsonData
-    
+        request.method = .get
+//        let jsonData = try! JSONEncoder().encode(SSEData(imageID: "hi"))
+//        request.httpBody = jsonData
+        
         urlSession?.dataTask(with: request).resume()
-//        urlSession?.dataTask(with: url).resume()
     }
 
     public func disconnect() {
@@ -153,6 +148,7 @@ open class CustomEventSource: NSObject, CustomEventSourceProtocol, URLSessionDat
                          newRequest request: URLRequest,
                          completionHandler: @escaping (URLRequest?) -> Void) {
         var newRequest = request
+        
         self.headers.forEach { newRequest.setValue($1, forHTTPHeaderField: $0) }
         completionHandler(newRequest)
     }
@@ -160,19 +156,16 @@ open class CustomEventSource: NSObject, CustomEventSourceProtocol, URLSessionDat
 
 internal extension CustomEventSource {
 
-    func sessionConfiguration(lastEventId: String?) -> URLSessionConfiguration {
+    func sessionConfiguration(eventId: String) -> URLSessionConfiguration {
 
         var additionalHeaders = headers
-        if let eventID = lastEventId {
-            additionalHeaders["Last-Event-Id"] = eventID
-        }
-        additionalHeaders["Content-Type"] = "text/event-stream"
+//        additionalHeaders["Content-Type"] = "text/event-stream"
+//        additionalHeaders["Content-Type"] = "application/json"
         additionalHeaders["accept"] = "text/event-stream"
         additionalHeaders["Cache-Control"] = "no-cache"
         additionalHeaders["Connection"] = "keep-alive"
-//        additionalHeaders["charaterencoder"] = "utf-8"
-//        additionalHeaders["Cache-Control"] = "no-cache"
-
+        additionalHeaders["imageId"] = eventId
+        
         let sessionConfiguration = URLSessionConfiguration.default
         sessionConfiguration.timeoutIntervalForRequest = TimeInterval(INT_MAX)
         sessionConfiguration.timeoutIntervalForResource = TimeInterval(INT_MAX)

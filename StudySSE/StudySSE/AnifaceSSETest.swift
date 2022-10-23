@@ -74,7 +74,7 @@ final class AnifaceSSETest: UIViewController {
             
             let retryTime = eventSource.retryTime
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(retryTime)) { [weak self] in
-                eventSource.connect()
+                eventSource.connect(eventId: "2022-10-23:14:46:00kkee")
             }
         }
         
@@ -114,7 +114,7 @@ extension AnifaceSSETest {
         connectBtn.rx.tap
             .bind { [weak self] _ in
                 print("connect SSE Clicked!")
-                self?.eventSource.connect()
+                self?.eventSource.connect(eventId: "2022-10-23:14:46:00kkee")
 //                self?.postRequest()
             }
             .disposed(by: disposeBag)
