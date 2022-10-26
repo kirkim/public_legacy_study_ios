@@ -47,6 +47,10 @@ class ViewController: UIViewController {
         guard let image = imageView.image else { return }
         mailManager.shareImage(image: image, viewController: self)
     }
+    @IBAction func handleSaveInDevice(_ sender: UIButton) {
+        guard let image = imageView.image else { return }
+        UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
+    }
 }
 
 extension ViewController: MFMailComposeViewControllerDelegate {

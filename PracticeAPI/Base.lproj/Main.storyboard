@@ -39,6 +39,15 @@
                                     <action selector="handleShareMail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jm4-4t-uKd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qup-5Q-evq">
+                                <rect key="frame" x="152" y="478" width="88" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="앨범 저장"/>
+                                <connections>
+                                    <action selector="handleSaveInDevice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4yq-Ib-1CA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
