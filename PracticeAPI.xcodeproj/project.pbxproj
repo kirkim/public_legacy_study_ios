@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE35914329090C250070DFF6 /* MailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE35914229090C250070DFF6 /* MailManager.swift */; };
 		FEA5A86B2900CE50007C3752 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA5A86A2900CE50007C3752 /* AppDelegate.swift */; };
 		FEA5A86D2900CE50007C3752 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA5A86C2900CE50007C3752 /* SceneDelegate.swift */; };
 		FEA5A86F2900CE50007C3752 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA5A86E2900CE50007C3752 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE35914229090C250070DFF6 /* MailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailManager.swift; sourceTree = "<group>"; };
 		FEA5A8672900CE50007C3752 /* PracticeAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEA5A86A2900CE50007C3752 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEA5A86C2900CE50007C3752 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				FEA5A86A2900CE50007C3752 /* AppDelegate.swift */,
 				FEA5A86C2900CE50007C3752 /* SceneDelegate.swift */,
 				FEA5A86E2900CE50007C3752 /* ViewController.swift */,
+				FE35914229090C250070DFF6 /* MailManager.swift */,
 				FEA5A8702900CE50007C3752 /* Main.storyboard */,
 				FEA5A8732900CE51007C3752 /* Assets.xcassets */,
 				FEA5A8752900CE51007C3752 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				FEA5A86F2900CE50007C3752 /* ViewController.swift in Sources */,
 				FEA5A86B2900CE50007C3752 /* AppDelegate.swift in Sources */,
+				FE35914329090C250070DFF6 /* MailManager.swift in Sources */,
 				FEA5A86D2900CE50007C3752 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,6 +298,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -321,6 +326,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -6,19 +6,20 @@
 //
 
 import UIKit
+import MessageUI
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var imageView: UIImageView!
+    private let mailManager = MailManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         imageView.image = UIImage(named: "sample1")
     }
-
-
-    @IBAction func handleShareInsta(_ sender: Any) {
+    
+    @IBAction func handleShareInsta(_ sender: UIButton) {
         if let storiesUrl = URL(string: "instagram-stories://share") {
             if UIApplication.shared.canOpenURL(storiesUrl) {
                 // 위의 sharingImageView의 image를 image에 저장
@@ -41,5 +42,16 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func handleShareMail(_ sender: UIButton) {
+        guard let image = imageView.image else { return }
+        mailManager.shareImage(image: image, viewController: self)
+    }
 }
 
+extension ViewController: MFMailComposeViewControllerDelegate {
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        self.dismiss(animated: true, completion: nil)
+    }
+}
