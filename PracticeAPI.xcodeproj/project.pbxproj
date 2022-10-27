@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FE35914329090C250070DFF6 /* MailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE35914229090C250070DFF6 /* MailManager.swift */; };
+		FE62F290290A6F1F00E28D54 /* Mabinogi_Classic_OTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE62F28F290A6F1F00E28D54 /* Mabinogi_Classic_OTF.otf */; };
 		FEA5A86B2900CE50007C3752 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA5A86A2900CE50007C3752 /* AppDelegate.swift */; };
 		FEA5A86D2900CE50007C3752 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA5A86C2900CE50007C3752 /* SceneDelegate.swift */; };
 		FEA5A86F2900CE50007C3752 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA5A86E2900CE50007C3752 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		FE35914229090C250070DFF6 /* MailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailManager.swift; sourceTree = "<group>"; };
+		FE62F28F290A6F1F00E28D54 /* Mabinogi_Classic_OTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mabinogi_Classic_OTF.otf; sourceTree = "<group>"; };
 		FEA5A8672900CE50007C3752 /* PracticeAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEA5A86A2900CE50007C3752 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEA5A86C2900CE50007C3752 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				FEA5A8732900CE51007C3752 /* Assets.xcassets */,
 				FEA5A8752900CE51007C3752 /* LaunchScreen.storyboard */,
 				FEA5A8782900CE51007C3752 /* Info.plist */,
+				FE62F28F290A6F1F00E28D54 /* Mabinogi_Classic_OTF.otf */,
 			);
 			path = PracticeAPI;
 			sourceTree = "<group>";
@@ -130,6 +133,7 @@
 			files = (
 				FEA5A8772900CE51007C3752 /* LaunchScreen.storyboard in Resources */,
 				FEA5A8742900CE51007C3752 /* Assets.xcassets in Resources */,
+				FE62F290290A6F1F00E28D54 /* Mabinogi_Classic_OTF.otf in Resources */,
 				FEA5A8722900CE50007C3752 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

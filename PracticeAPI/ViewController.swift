@@ -13,10 +13,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     private let mailManager = MailManager()
     
+    @IBOutlet weak var sampleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         imageView.image = UIImage(named: "sample1")
+        폰트확인및적용()
+    }
+    
+    private func 폰트확인및적용() {
+        UIFont.familyNames.sorted().forEach { familyName in
+            print("*** \(familyName) ***")
+            UIFont.fontNames(forFamilyName: familyName).forEach { fontName in
+                print("\(fontName)")
+            }
+            print("---------------------")
+        }
+        sampleLabel.font = UIFont(name: "MabinogiClassicOTFR", size: 20)
     }
     
     @IBAction func handleShareInsta(_ sender: UIButton) {
