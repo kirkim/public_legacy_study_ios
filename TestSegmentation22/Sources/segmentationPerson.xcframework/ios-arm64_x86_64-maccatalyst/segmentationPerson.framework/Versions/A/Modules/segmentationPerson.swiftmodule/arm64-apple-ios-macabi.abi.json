@@ -1,0 +1,161 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "CoreML",
+        "printedName": "CoreML",
+        "declKind": "Import",
+        "moduleName": "segmentationPerson",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "segmentationPerson"
+      },
+      {
+        "kind": "Import",
+        "name": "Vision",
+        "printedName": "Vision",
+        "declKind": "Import",
+        "moduleName": "segmentationPerson"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "TestSeg",
+        "printedName": "TestSeg",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "segmentation",
+            "printedName": "segmentation(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIImage?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIImage",
+                    "printedName": "UIKit.UIImage",
+                    "usr": "c:objc(cs)UIImage"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIImage",
+                "printedName": "UIKit.UIImage",
+                "usr": "c:objc(cs)UIImage"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18segmentationPerson7TestSegPAAE0A04fromSo7UIImageCSgAG_tYaF",
+            "mangledName": "$s18segmentationPerson7TestSegPAAE0A04fromSo7UIImageCSgAG_tYaF",
+            "moduleName": "segmentationPerson",
+            "genericSig": "<τ_0_0 where τ_0_0 : segmentationPerson.TestSeg>",
+            "sugared_genericSig": "<Self where Self : segmentationPerson.TestSeg>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "segmentationMap",
+            "printedName": "segmentationMap(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[[Swift.Int32]]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[[Swift.Int32]]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.Int32]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Int32",
+                            "printedName": "Swift.Int32",
+                            "usr": "s:s5Int32V"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIImage",
+                "printedName": "UIKit.UIImage",
+                "usr": "c:objc(cs)UIImage"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18segmentationPerson7TestSegPAAE0A3Map4fromSaySays5Int32VGGSgSo7UIImageC_tYaF",
+            "mangledName": "$s18segmentationPerson7TestSegPAAE0A3Map4fromSaySays5Int32VGGSgSo7UIImageC_tYaF",
+            "moduleName": "segmentationPerson",
+            "genericSig": "<τ_0_0 where τ_0_0 : segmentationPerson.TestSeg>",
+            "sugared_genericSig": "<Self where Self : segmentationPerson.TestSeg>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:18segmentationPerson7TestSegP",
+        "mangledName": "$s18segmentationPerson7TestSegP",
+        "moduleName": "segmentationPerson",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "segmentationPerson",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreML",
+        "printedName": "CoreML",
+        "declKind": "Import",
+        "moduleName": "segmentationPerson",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": []
+}

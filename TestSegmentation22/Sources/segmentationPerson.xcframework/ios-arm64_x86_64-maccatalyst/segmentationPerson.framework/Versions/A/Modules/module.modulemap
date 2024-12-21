@@ -1,0 +1,11 @@
+framework module segmentationPerson {
+  umbrella header "segmentationPerson.h"
+
+  export *
+  module * { export * }
+}
+
+module segmentationPerson.Swift {
+  header "segmentationPerson-Swift.h"
+  requires objc
+}
